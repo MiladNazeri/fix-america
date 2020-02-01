@@ -51,16 +51,20 @@ public class ProtesterManager : MonoBehaviour
 	void RemoveProtester(){
 		Debug.Log("removing protester");
 		//find a random protester, mark them as leaving and send them back to a spawn point to despawn
+		int pick = Random.Range(0,(protesters.Count - 1));
+		protesters[pick].despawning = true;
+		protesters[pick].SetDestination(randomSpawnPoint());
+		protesters.Remove(protesters[pick]);
 	}
 
 	Vector3 randomSpawnPoint(){
 		Random rand = new Random();
-		var pick = Random.Range(0,(spawnPoints.Length - 1));
+		int pick = Random.Range(0,(spawnPoints.Length - 1));
 		return spawnPoints[pick].transform.position;
 	}
 	Vector3 randomGoal(){
 		Random rand = new Random();
-		var pick = Random.Range(0,(goals.Length - 1));
+		int pick = Random.Range(0,(goals.Length - 1));
 		return goals[pick].transform.position;
 	}
 }
