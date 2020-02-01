@@ -6,18 +6,22 @@ using System.Linq;
 public class Backend: MonoBehaviour
 {
 	// Keeping it a Dict<> so that we can associate weights later on if we want
-	HashSet<string> positive_verbs = new HashSet<string>() {
+	List<string> positive_verbs = new List<string>() {
 		"please",
 		"improve the life of",
 		"reduce taxes on"
 	};
 
 	// Keeping it a Dict<> so that we can associate weights later on if we want
-	HashSet<string> negative_verbs = new HashSet<string>() {
+	List<string> negative_verbs = new List<string>() {
 		"deport",
 		"segregate",
 		"increase taxes on"
 	};
+
+	HashSet<string> alreadyDrawnBills = new HashSet<string>();
+
+	long maxBillsPosibilitiesNumber = Int64.MaxValue;
 
 	Dictionary<string, Tuple<float, float, float>> population_opinions =
 		new Dictionary<string, Tuple<float, float, float>>() {
@@ -66,27 +70,51 @@ public class Backend: MonoBehaviour
 			var neutral = 1f - pos - neg;
 			population_opinions[topic] = new Tuple<float, float, float>(pos, neg, neutral);
 		}
+		maxBillsPosibilitiesNumber = negative_verbs.Count * population_opinions.Keys.Count * negative_verbs.Count * population_opinions.Keys.Count;
+		Debug.Log($"Max number of bills that can be generated: {maxBillsPosibilitiesNumber}");
 		Debug.Log("Population has been initialized to:");
 		DisplayPop();
 	}
 
-	private string randchoice(IEnumerable<string> list) {
-		var count = list.Count();
-		var index = (int) UnityEngine.Random.Range(0, count - 1);
-		return list.ElementAt(index);
+	private string randchoice(List<string> list) {
+		var count = list.Count;
+		var index = UnityEngine.Random.Range(0, count);
+		return list[index];
 	}
 
 	// Returns:
 	// Tuple<actual_text, negative_group_id, positive_group_id>
 	public Tuple<string, string, string> GetNewBill() {
-		var pos = randchoice(positive_verbs);
-		var neg = randchoice(negative_verbs);
-		var g_neg = randchoice(population_opinions.Keys);
-		var g_pos = g_neg;
-		while (g_neg == g_pos) {
-			g_pos = randchoice(population_opinions.Keys);
+		if (alreadyDrawnBills.Count >= maxBillsPosibilitiesNumber * 0.75f)
+		{
+			Debug.LogWarning("We have actually drawn all/most possible bills!! Resetting the drawn bills");
+			alreadyDrawnBills.Clear();
 		}
-		var actual_text = $"{neg} {g_neg} to {pos} {g_pos}";
+		string g_pos = "";
+		string g_neg = "";
+		string actual_text = "";
+		var groups = new List<string>();
+		groups.AddRange(population_opinions.Keys);
+		int attempts = 0;
+		do
+		{
+			var pos = randchoice(positive_verbs);
+			var neg = randchoice(negative_verbs);
+			// For faster lookup
+			g_neg = randchoice(groups);
+			g_pos = g_neg;
+			while (g_neg == g_pos) {
+				g_pos = randchoice(groups);
+			}
+			actual_text = $"{neg} {g_neg} to {pos} {g_pos}";
+			if (attempts++ > 1e5)
+			{
+				Debug.LogWarning("Tried too many times to find a new bill, giving up not to hang the game.");
+				Debug.LogWarning($"Unique drawn bills: {alreadyDrawnBills.Count} / max possible: {maxBillsPosibilitiesNumber}");
+				break; // Make sure not to freeze the game even if you are really unlucky in your random drawings
+			}	
+		} while (alreadyDrawnBills.Contains(actual_text));
+		alreadyDrawnBills.Add(actual_text);
 		return new Tuple<string, string, string>(actual_text, g_neg, g_pos);
 	}
 
