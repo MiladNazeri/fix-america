@@ -32,12 +32,12 @@ public class Backend : MonoBehaviour
         "Ban all",
 		"Increase the limitation on sales of",
 		"Require the reporting of bullying of",
-		"Freeze assets",
+		"Freeze all assets of",
 		"War on",
 		"Declare national emergency on",
-		"Eliminate public funding of ",
-		"To authorize the Marshal of the Supreme Court and the Supreme Court Police to protect",
-		"To amend the Balanced Budget and Emergency Deficit Control Act of"
+		"Eliminate public funding of",
+		"To authorize the Marshal of the Supreme Court and the Supreme Court Police to protect the",
+		"To amend the Balanced Budget and Emergency Deficit Control Act of",
     };
 
     Dictionary<string, Tuple<float, float, float>> population_opinions =
@@ -53,18 +53,21 @@ public class Backend : MonoBehaviour
             {"Football fans", null},
             {"Golf players", null},
             {"Flat Earthers", null},
-			{"Electric Vehicles", null},
-			{"Creationist", null},
+			{"Electric Vehicle Owners", null},
 			{"Scientologist", null},
 			{"Cannabis users", null},
-			{"Veterans", null},
+			{"Anti-Vaxxers", null},
 			{"Weather enthusiasts", null},
 			{"Glasses owners", null},
 			{"Gun owners", null},
-			{"Nazis", null},
-			{"Robots", null},
+			{"Retired people", null},
+			{"Poor people", null},
 			{"Victims of Facebook", null},
-			{"Terrorists", null}
+			{"Terrorists", null},
+			{"Parents", null},
+			{"Patriots", null},
+			{"Commuters", null},
+			{"First-Cousins", null},
         };
 
     public float happyGroupMultiplier = 1f;
