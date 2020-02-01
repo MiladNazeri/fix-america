@@ -7,65 +7,63 @@ public class Backend : MonoBehaviour
 {
     // Keeping it a Dict<> so that we can associate weights later on if we want
     HashSet<string> positive_verbs = new HashSet<string>() {
-        "please",
-        "improve the life of",
-        "reduce taxes on",
+        "Please",
+        "Improve the life of",
+        "Reduce taxes on",
 		"Decriminalize",
 		"Reduce Tax on",
-		"Direct the Homeland Security council to protect",
+		"Direct the Homeland Security council to protect the",
 		"Authorize grants for",
-		"To provide a study by the National Academy of Medicine on",
-		"Establish a refund of",
+		"To provide a study by the National Academy of Medicine for",
+		"Establish a refund of grants for",
 		"End the epidemic of",
 		"Reduce the age of legalization of ownership of",
 		"Improve honesty in sales of",
 		"Protection of",
 		"The Director of the Centers for Disease Control and Prevention, shall carry out a national program to conduct and support activities regarding",
-		"To reauthorize mandatory funding programs"
+		"To reauthorize mandatory funding programs for"
     };
 
     // Keeping it a Dict<> so that we can associate weights later on if we want
     HashSet<string> negative_verbs = new HashSet<string>() {
-        "deport",
-        "segregate",
-        "increase taxes on",
+        "Deport",
+        "Segregate",
+        "Increase taxes on",
         "Ban all",
-		"Increase Tax on",
 		"Increase the limitation on sales of",
 		"Require the reporting of bullying of",
 		"Freeze assets",
 		"War on",
 		"Declare national emergency on",
-		"Eliminate public funding",
+		"Eliminate public funding of ",
 		"To authorize the Marshal of the Supreme Court and the Supreme Court Police to protect",
 		"To amend the Balanced Budget and Emergency Deficit Control Act of"
     };
 
     Dictionary<string, Tuple<float, float, float>> population_opinions =
         new Dictionary<string, Tuple<float, float, float>>() {
-            {"women", null},
-            {"environmentalists", null},
-            {"cats", null},
-            {"dogs", null},
-            {"men", null},
-            {"mega corporations", null},
-            {"millionaires", null},
-            {"medicare beneficiaries", null},
-            {"football fans", null},
-            {"golf players", null},
+            {"Women", null},
+            {"Environmentalists", null},
+            {"Cats", null},
+            {"Dogs", null},
+            {"Men", null},
+            {"Mega corporations", null},
+            {"Millionaires", null},
+            {"Medicare beneficiaries", null},
+            {"Football fans", null},
+            {"Golf players", null},
             {"Flat Earthers", null},
 			{"Electric Vehicles", null},
-			{"Creationism", null},
+			{"Creationist", null},
 			{"Scientologist", null},
-			{"Cannabis", null},
+			{"Cannabis users", null},
 			{"Veterans", null},
 			{"Weather enthusiasts", null},
 			{"Glasses owners", null},
 			{"Gun owners", null},
-			{"Nazi", null},
+			{"Nazis", null},
 			{"Robots", null},
 			{"Victims of Facebook", null},
-			{"Anti-Slavery", null},
 			{"Terrorists", null}
         };
 
