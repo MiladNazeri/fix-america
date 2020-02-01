@@ -3,21 +3,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Backend: MonoBehaviour
+public class Backend : MonoBehaviour
 {
-	// Keeping it a Dict<> so that we can associate weights later on if we want
 	List<string> positive_verbs = new List<string>() {
-		"please",
-		"improve the life of",
-		"reduce taxes on"
-	};
+        "Please",
+        "Improve the life of",
+        "Reduce taxes on",
+        "Decriminalize",
+        "Reduce Tax on",
+        "Direct the Homeland Security council to protect the",
+        "Authorize grants for",
+        "To provide a study by the National Academy of Medicine for",
+        "Establish a refund of grants for",
+        "End the epidemic of",
+        "Reduce the age of legalization of ownership of",
+        "Improve honesty in sales of",
+        "Protection of",
+        "The Director of the Centers for Disease Control and Prevention, shall carry out a national program to conduct and support activities regarding",
+        "To reauthorize mandatory funding programs for"
+    };
 
-	// Keeping it a Dict<> so that we can associate weights later on if we want
 	List<string> negative_verbs = new List<string>() {
-		"deport",
-		"segregate",
-		"increase taxes on"
-	};
+        "Deport",
+        "Segregate",
+        "Increase taxes on",
+        "Ban all",
+        "Increase the limitation on sales of",
+        "Require the reporting of bullying of",
+        "Freeze all assets of",
+        "War on",
+        "Declare national emergency on",
+        "Eliminate public funding of",
+        "To authorize the Marshal of the Supreme Court and the Supreme Court Police to protect the",
+        "To amend the Balanced Budget and Emergency Deficit Control Act of",
+    };
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
 
@@ -25,33 +44,53 @@ public class Backend: MonoBehaviour
 
 	Dictionary<string, Tuple<float, float, float>> population_opinions =
 		new Dictionary<string, Tuple<float, float, float>>() {
-			{"women", null},
-			{"environmentalists", null},
-			{"cats", null},
-			{"dogs", null},
-			{"men", null},
-			{"mega corporations", null},
-			{"millionaires", null},
-			{"medicare beneficiaries", null},
-			{"football fans", null},
-			{"golf players", null}
-		};
+            {"Women", null},
+            {"Environmentalists", null},
+            {"Cats", null},
+            {"Dogs", null},
+            {"Men", null},
+            {"Mega corporations", null},
+            {"Millionaires", null},
+            {"Medicare beneficiaries", null},
+            {"Football fans", null},
+            {"Golf players", null},
+            {"Flat Earthers", null},
+            {"Electric Vehicle Owners", null},
+            {"Scientologist", null},
+            {"Minors and Miners", null},
+            {"Anti-Vaxxers", null},
+            {"Weather enthusiasts", null},
+            {"Glasses owners", null},
+            {"Gun owners", null},
+            {"Retired people", null},
+            {"Poor people", null},
+            {"Victims of Facebook", null},
+            {"Terrorists", null},
+            {"Parents", null},
+            {"Patriots", null},
+            {"Commuters", null},
+            {"First-Cousins", null},
+        };
 
-	public float happyGroupMultiplier = 1f;
-	public float unhappyGroupMultiplier = -1f;
+    public float happyGroupMultiplier = 1f;
+    public float unhappyGroupMultiplier = -1f;
 
-	public static Backend Instance { get; private set; }
+    public static Backend Instance { get; private set; }
 
-	private void Awake() {
-		if (null == Instance) {
-			Instance = this;
-			Init();
-			DontDestroyOnLoad(gameObject);
-		} else {
-			// Another one already exists, suicide ourselves, there can only be one
-			Destroy(gameObject);
-		}
-	}
+    private void Awake()
+    {
+        if (null == Instance)
+        {
+            Instance = this;
+            Init();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // Another one already exists, suicide ourselves, there can only be one
+            Destroy(gameObject);
+        }
+    }
 
 	private void Init()
 	{
@@ -76,7 +115,7 @@ public class Backend: MonoBehaviour
 		DisplayPop();
 	}
 
-	private string randchoice(List<string> list) {
+    private string randchoice(List<string> list) {
 		var count = list.Count;
 		var index = UnityEngine.Random.Range(0, count);
 		return list[index];
@@ -117,27 +156,28 @@ public class Backend: MonoBehaviour
 		alreadyDrawnBills.Add(actual_text);
 		return new Tuple<string, string, string>(actual_text, g_neg, g_pos);
 	}
+    
+    private void DisplayPop()
+    {
+        foreach (var keyVal in population_opinions)
+        {
+            Debug.Log($"Topic pop distrib:\t{keyVal.Key}\t\t{keyVal.Value.Item1}\t{keyVal.Value.Item2}\t{keyVal.Value.Item3}");
+        }
+    }
 
-	private void DisplayPop()
-	{
-		foreach(var keyVal in population_opinions) {
-			Debug.Log($"Topic pop distrib:\t{keyVal.Key}\t\t{keyVal.Value.Item1}\t{keyVal.Value.Item2}\t{keyVal.Value.Item3}");
-		}
-	}
-
-	public float GetBillPopularity(string groupNegative, string groupPositive)
-	{
-		// Formula explanation:
-		// happygroup * 1 - 1 * unhappygroup varies between -1 and +1
-		// but we want to map it linearly to 0 - 1 in order to have a percentage
-		// so for that we basically divide it by two, that gives -0.5 to +0.5 and then you add 1
-		// and you're mapped to 0 to 1 now. If you're full negative (-1) you have 0 (0.5 + 0.5 * -1 = 0)
-		// and if you are full positive you have 1 (0.5 + 0.5 * 1)
-		// which can also be written as 0.5 * (1 + score)
-		return 0.5f * (
-			1 +
-			happyGroupMultiplier * population_opinions[groupPositive].Item1 + unhappyGroupMultiplier * population_opinions[groupNegative].Item2
-		);
-	}
+    public float GetBillPopularity(string groupNegative, string groupPositive)
+    {
+        // Formula explanation:
+        // happygroup * 1 - 1 * unhappygroup varies between -1 and +1
+        // but we want to map it linearly to 0 - 1 in order to have a percentage
+        // so for that we basically divide it by two, that gives -0.5 to +0.5 and then you add 1
+        // and you're mapped to 0 to 1 now. If you're full negative (-1) you have 0 (0.5 + 0.5 * -1 = 0)
+        // and if you are full positive you have 1 (0.5 + 0.5 * 1)
+        // which can also be written as 0.5 * (1 + score)
+        return 0.5f * (
+            1 +
+            happyGroupMultiplier * population_opinions[groupPositive].Item1 + unhappyGroupMultiplier * population_opinions[groupNegative].Item2
+        );
+    }
 
 }
