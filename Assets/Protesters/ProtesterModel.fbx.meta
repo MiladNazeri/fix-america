@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 20701fe255a83ea4a9e63de8f2dd2f0e
-=======
-guid: 2c3c028773a7a48bb9b2990f8a5d6cde
->>>>>>> Protesters
+guid: 8390630830c0d4549adaaba581673042
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -38,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1

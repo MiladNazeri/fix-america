@@ -8,9 +8,12 @@ public class StampUiManager : MonoBehaviour
     public GameObject veto;
     public GameObject currentStamp;
     public GameObject newStamp;
+    public GameObject stampPosition;
+    public List<GameObject> deskStamps;
     // Start is called before the first frame update
     void Start()
     {
+        deskStamps = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -41,17 +44,28 @@ public class StampUiManager : MonoBehaviour
 
         stampAnimation.Play("StampAnimations");
         StampAudio.instance.PlayStampSound();
-        ShowStamp(true);
     }
 
-    public void ShowStamp(bool shouldShow) {
+    public void ShowPaperStamp(bool shouldShow) {
         if (shouldShow)
         {
             Debug.Log("should show");
-            newStamp = Instantiate(currentStamp, currentStamp.transform.position, Quaternion.Euler(90, 0, 0));
+            newStamp = Instantiate(currentStamp, stampPosition.transform.position, Quaternion.Euler(90, 0, 0));
         } else
         {
             Destroy(newStamp);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision for stamp");
+        if (collision.gameObject.CompareTag("papers"))
+        {
+            ShowPaperStamp(true);
+        } else
+        {
+
         }
     }
 }
