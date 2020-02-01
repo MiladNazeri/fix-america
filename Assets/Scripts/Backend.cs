@@ -55,7 +55,7 @@ public class Backend : MonoBehaviour
             {"Flat Earthers", null},
 			{"Electric Vehicle Owners", null},
 			{"Scientologist", null},
-			{"Cannabis users", null},
+			{"Minors and Miners", null},
 			{"Anti-Vaxxers", null},
 			{"Weather enthusiasts", null},
 			{"Glasses owners", null},
