@@ -32,6 +32,8 @@ public class Backend : MonoBehaviour
 		"Re-educate",
 		"Freeze all assets of",
 		"War on",
+		"Ban all",
+		"Increase Regulations on",
 		"Declare national emergency on",
 		"Eliminate public funding of",
 		"Authorize the Marshal of the Supreme Court and the Supreme Court Police to protect the",
@@ -39,6 +41,7 @@ public class Backend : MonoBehaviour
 		"Make emergency supplemental appropriations for",
 		"Direct the Comptroller General of the United States to conduct an assessment of the responsibilities, workload, and vacancy rates of",
 		"Require the Director of the Office of Management and Budget to issue guidance on", 
+		"Create new ISO Standards for",
     };
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
