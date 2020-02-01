@@ -186,4 +186,37 @@ public class Backend : MonoBehaviour
         );
     }
 
+	public void GetBill()
+	{
+		GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
+	}
+
+	public ProtesterManager protesterManager;
+
+	public void ApproveBill() 
+	{
+		Debug.Log("Generating a new bill.");
+		
+
+		
+		var popularity = Backend.Instance.GetBillPopularity(
+			GameState.Instance.CurrentBill.Item2,
+			GameState.Instance.CurrentBill.Item3
+		);
+		Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
+		Debug.Log($"Potential popularity of the bill is: {(int)(popularity * 100)}%.");
+
+		protesterManager.SetProtesterAmount((int)((1f-popularity) * 100f)); 
+	}
+
+	public void DeclineBill() 
+	{
+		var popularity = Backend.Instance.GetBillPopularity(
+			GameState.Instance.CurrentBill.Item2,
+			GameState.Instance.CurrentBill.Item3
+		);
+
+		protesterManager.SetProtesterAmount((int)(popularity * 100f)); 
+
+	}
 }

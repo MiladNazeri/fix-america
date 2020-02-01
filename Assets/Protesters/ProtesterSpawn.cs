@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class ProtesterSpawn : MonoBehaviour
 {
-	 void OnDrawGizmos()
-    {
+	private void OnTriggerEnter(Collider other) {
+		Debug.Log("trigger enter");
+		if(other.GetComponent<Protester>()){
+			if(other.GetComponent<Protester>().despawning){
+				Destroy(other.gameObject);
+			}
+		}	
+	}
 
+	void OnDrawGizmos()
+    {
         Gizmos.DrawIcon(transform.position, "SpawnPoint.png", false);
     }
 }
