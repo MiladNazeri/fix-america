@@ -4043,7 +4043,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4051,7 +4051,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8600000, guid: a0b2ac4d48920ef4cb29dec2d6d7bd79, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 707b1a8aec9ee466bbc197e14e214e9c, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -4068,13 +4068,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545066420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.333, y: -9.1, z: 115.67}
+  m_LocalRotation: {x: 0.04658838, y: -0, z: -0, w: 0.9989142}
+  m_LocalPosition: {x: -17.509998, y: -7.42, z: 104.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 815384011}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.341, y: 0, z: 0}
 --- !u!1 &548962968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,7 +4477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658725865}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.829178, y: -10.117714, z: 106.647995}
+  m_LocalPosition: {x: -18.7, y: -10.117714, z: 114.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 815384011}
@@ -11466,7 +11466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8600000, guid: a0b2ac4d48920ef4cb29dec2d6d7bd79, type: 2}
+  m_Texture: {fileID: 8400000, guid: 707b1a8aec9ee466bbc197e14e214e9c, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
