@@ -1504,6 +1504,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 4289969906675351654, guid: e3d60d486fa274f57a2370bfab5cff2b,
+        type: 3}
+      propertyPath: lookAtTarget
+      value: 
+      objectReference: {fileID: 184348765}
     - target: {fileID: 4289969906675351655, guid: e3d60d486fa274f57a2370bfab5cff2b,
         type: 3}
       propertyPath: m_LocalPosition.x

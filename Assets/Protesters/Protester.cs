@@ -15,6 +15,7 @@ public class Protester : MonoBehaviour
 	float lastCheckTime;
 	public float positionCheckInterval = 3.0f;
 	public float minWalkCheckDistance = 10.0f;
+	public Transform lookAtTarget;
 
 	NavMeshAgent agent;
 	void Awake () {
@@ -32,10 +33,22 @@ public class Protester : MonoBehaviour
 			}
 			lastPosition = transform.position;
 		}
+		if(arrived){
+			if(lookAtTarget != null){
+				transform.LookAt(lookAtTarget);
+			}
+		}
     }
 
-	public void SetDestination(Vector3 destination){
+	public void SetDestination(ProtesterGoal goal){
 		//Debug.Log("setting destination to " + destination.ToString());
-		agent.destination = destination;
+		agent.destination = goal.transform.position;
+		if(goal.lookAtTarget){
+			lookAtTarget = goal.lookAtTarget;
+		}
+	}
+	public void SetDestination(Vector3 t){
+		//Debug.Log("setting destination to " + destination.ToString());
+		agent.destination = t;
 	}
 }
