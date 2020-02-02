@@ -19,6 +19,15 @@ public class StartScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Collision with start button: {other.gameObject.name}");
+        if (other.gameObject.name == "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]")
+        {
+            SceneManager.LoadScene("OvalOffice");
+        }
     }
 }

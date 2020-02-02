@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
     public void Lose(bool force=false) {
         GameState.Instance.remainingLives--;
         if (GameState.Instance.remainingLives == 0 || force) {
-            
             GameState.Instance.SetState(GameState.State.End);
         } else {
             Destroy(golfBagsParent.transform.GetChild(0).gameObject);
@@ -112,10 +111,10 @@ public class GameManager : MonoBehaviour
     {
         if(canStampNewBill)
         {
-canStampNewBill = false;
-        Backend.Instance.ApproveBill();
-        billTextChange.SetText("");
-        StartCoroutine(WaitThenCreateNewBill());
+            canStampNewBill = false;
+            Backend.Instance.ApproveBill();
+            billTextChange.SetText("");
+            StartCoroutine(WaitThenCreateNewBill());
         }
         
     }
@@ -124,10 +123,10 @@ canStampNewBill = false;
     {
         if(canStampNewBill)
         {
-canStampNewBill = false;
-        Backend.Instance.DeclineBill();
-        billTextChange.SetText("");
-        StartCoroutine(WaitThenCreateNewBill());
+            canStampNewBill = false;
+            Backend.Instance.DeclineBill();
+            billTextChange.SetText("");
+            StartCoroutine(WaitThenCreateNewBill());
         }
         
     }

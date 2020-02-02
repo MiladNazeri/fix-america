@@ -8,6 +8,9 @@ public class Backend : MonoBehaviour
 	List<string> positive_verbs = new List<string>() {
 		"Please",
 		"Improve the life of",
+		"Increase funding of",
+		"Subsidize",
+		// "Endorse",
 		"Reduce taxes on",
 		"Decriminalize",
 		"Direct the Homeland Security Council to protect the",
@@ -16,8 +19,8 @@ public class Backend : MonoBehaviour
 		"End the epidemic of",
 		// "Enlist the Director for Disease Control and Prevention to support activities regarding all",
 		"Create programs of temporary assistance for",
-		"Promote the suffering of",
-		"Mint coins in commemoration of",
+		// "Promote the suffering of",
+		// "Mint coins in commemoration of",
 		"Award Congressional Gold Medals to",
 		"Give $1000 to all"
 	};
@@ -250,5 +253,10 @@ public class Backend : MonoBehaviour
 		TVController.Instance.DisplayPopularity(100 - popularity);
 		protesterManager?.SetProtesterAmount(popularity); 
 
+	}
+
+	public void Reset() {
+		alreadyDrawnBills.Clear();
+		allDrawnBills.Clear();
 	}
 }
