@@ -199,6 +199,11 @@ public class Backend : MonoBehaviour
 			GameState.Instance.averagePopularity * GameState.Instance.daysPlayed
 		 	+ popularity
 		) / (GameState.Instance.daysPlayed + 1);
+		if (GameState.Instance.daysPlayed > GameManager.DAYS_OF_IMMUNITY
+			&& GameState.Instance.averagePopularity < GameManager.POPULARITY_AVG_LOSING_THRESHOLD)
+		{
+			GameManager.Instance.Lose(true);
+		}
 	}
 
 	public void ApproveBill() 
