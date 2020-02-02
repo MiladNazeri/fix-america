@@ -19869,7 +19869,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7fa5458f60da008488c95e25f2d271dd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.381
+  m_Volume: 0.42
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -75372,6 +75372,7 @@ MonoBehaviour:
   veto: {fileID: 1055601349}
   approve: {fileID: 1935259463}
   desktopStamp: {fileID: 1962966648}
+  forceLoseFromEditor: 0
 --- !u!4 &1927200174
 Transform:
   m_ObjectHideFlags: 0
