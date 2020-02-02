@@ -15,6 +15,7 @@ public class ProtesterManager : MonoBehaviour
     public GameObject sign;
 
     public int protesterSignPercent = 10;
+	public int maxProtesters = 200;
 
     const int MAX_NUMBER_PROTESTED = 100;
 
@@ -29,7 +30,7 @@ public class ProtesterManager : MonoBehaviour
     public void SetProtesterAmount(int amount)
     {
         //Debug.Log("requesting protesters: " + amount.ToString());
-        desiredProtesters = amount;
+        desiredProtesters = Mathf.Min(amount, maxProtesters);
         UpdateProtesters();
     }
     void UpdateProtesters()

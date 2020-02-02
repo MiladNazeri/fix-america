@@ -172,6 +172,6 @@ public class GameManager : MonoBehaviour
             break;
         }
 
-        return 1;
+        return 2;
     }
 }
