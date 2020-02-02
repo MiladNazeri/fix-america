@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public const int SECONDS_PER_BILL = 10;
     public const int DAYS_OF_IMMUNITY = 20;
     public const int POPULARITY_AVG_LOSING_THRESHOLD = 50;
-    public const float TIME_BETWEEN_BILLS_SECONDS = 3f;
+    public const float TIME_BETWEEN_BILLS_SECONDS = 1f;
 
     public GameObject golfBagsParent;
 
@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject approve;
     public GameObject desktopStamp;
 
+    bool canStampNewBill = true;
+
     public void BillTimerIsOver()
     {
         Lose();
@@ -29,7 +31,8 @@ public class GameManager : MonoBehaviour
     public void Lose(bool force=false) {
         GameState.Instance.remainingLives--;
         if (GameState.Instance.remainingLives == 0 || force) {
-            SceneManager.LoadScene("end_scene");
+            
+            GameState.Instance.SetState(GameState.State.End);
         } else {
             Destroy(golfBagsParent.transform.GetChild(0).gameObject);
             GetNewBill();
@@ -84,6 +87,7 @@ public class GameManager : MonoBehaviour
         
         Debug.Log($"Potential popularity of the bill is: {popularity}%.");
         TVController.Instance.StartTimerForSeconds(SECONDS_PER_BILL, BillTimerIsOver);
+        canStampNewBill = true;
     }
 
     private IEnumerator WaitThenCreateNewBill()
@@ -94,13 +98,25 @@ public class GameManager : MonoBehaviour
 
     public void Approve()
     {
+        if(canStampNewBill)
+        {
+canStampNewBill = false;
         Backend.Instance.ApproveBill();
+        billTextChange.SetText("");
         StartCoroutine(WaitThenCreateNewBill());
+        }
+        
     }
 
     public void Veto()
     {
+        if(canStampNewBill)
+        {
+canStampNewBill = false;
         Backend.Instance.DeclineBill();
+        billTextChange.SetText("");
         StartCoroutine(WaitThenCreateNewBill());
+        }
+        
     }
 }

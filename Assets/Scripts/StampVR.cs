@@ -12,6 +12,7 @@ public class StampVR : MonoBehaviour
     bool _isGrabbed = true;
 
     public GameObject StampBill;
+    public AudioClip clip;
 
     void Start()
     {
@@ -64,13 +65,15 @@ public class StampVR : MonoBehaviour
 
             StampBill.GetComponent<StampBill>().SetCurrentStampType(stampType);
             StampBill.GetComponent<StampBill>().MakeNewStamp();
-            StampAudio.instance.PlayStampSound();
+            //StampAudio.instance.PlayStampSound();
+            transform.GetComponent<AudioSource>().PlayOneShot(clip);
         } else if (collision.gameObject.CompareTag("desk"))
         {
             Debug.Log("collision for desk");
 
             Vector3 deskStampPosition = collision.GetContact(0).point;
-            StampAudio.instance.PlayStampSound();
+            //StampAudio.instance.PlayStampSound();
+            transform.GetComponent<AudioSource>().PlayOneShot(clip);
             ShowDeskStamp(deskStampPosition);
         }
     }

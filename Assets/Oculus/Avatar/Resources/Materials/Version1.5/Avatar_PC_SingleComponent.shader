@@ -31,6 +31,7 @@ Shader "OvrAvatar/Avatar_PC_SingleComponent"
     
     SubShader
     {
+		Tags{ "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" "IgnoreProjector" = "True" }
         Blend [_SrcBlend] [_DstBlend]
         Cull Back
         CGPROGRAM
