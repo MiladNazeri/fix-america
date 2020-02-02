@@ -9,6 +9,8 @@ public class Backend : MonoBehaviour
 		"Please",
 		"Improve the life of",
 		"Increase funding of",
+		"Subsidize",
+		// "Endorse",
 		"Reduce taxes on",
 		"Decriminalize",
 		"Direct the Homeland Security Council to protect the",
