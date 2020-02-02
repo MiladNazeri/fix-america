@@ -176,6 +176,13 @@ public class Backend : MonoBehaviour
 		}
 	}
 
+	public float GetCurrentBillPopularity() {
+		return GetBillPopularity(
+			GameState.Instance.CurrentBill.Item2,
+			GameState.Instance.CurrentBill.Item3
+		);
+	}
+
 	public float GetBillPopularity(string groupNegative, string groupPositive)
 	{
 		// Formula explanation:
