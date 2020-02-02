@@ -26,7 +26,7 @@ public class ProtesterManager : MonoBehaviour
 
     public void SetProtesterAmount(int amount)
     {
-        Debug.Log("requesting protesters: " + amount.ToString());
+        //Debug.Log("requesting protesters: " + amount.ToString());
         desiredProtesters = amount;
         UpdateProtesters();
     }
@@ -56,7 +56,7 @@ public class ProtesterManager : MonoBehaviour
     {
 
         //spawn protester	
-        Debug.Log("adding protester");
+        //Debug.Log("adding protester");
         //create a protester at a random spawn point and send them to a random destination
         GameObject newProtesterPrefab = Instantiate(protesterPrefab, randomSpawnPoint(), Quaternion.identity);
         Protester newProtester = newProtesterPrefab.GetComponent<Protester>();
@@ -76,7 +76,7 @@ public class ProtesterManager : MonoBehaviour
     }
     void RemoveProtester()
     {
-        Debug.Log("removing protester");
+        //Debug.Log("removing protester");
         //find a random protester, mark them as leaving and send them back to a spawn point to despawn
         int pick = Random.Range(0, (protesters.Count - 1));
         protesters[pick].despawning = true;

@@ -47,7 +47,7 @@ public class StampVR : MonoBehaviour
 
     public void SetGrabbed(bool isGrabbed)
     {
-        _isGrabbed = _isGrabbed;
+        this._isGrabbed = isGrabbed;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -56,6 +56,7 @@ public class StampVR : MonoBehaviour
         {
             return;
         }
+        
         Debug.Log("collision for stamp");
         if (collision.gameObject.CompareTag("papers"))
         {

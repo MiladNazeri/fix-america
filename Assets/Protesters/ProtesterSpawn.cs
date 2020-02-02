@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProtesterSpawn : MonoBehaviour
 {
 	private void OnTriggerEnter(Collider other) {
-		Debug.Log("trigger enter");
+		//Debug.Log("trigger enter");
 		if(other.GetComponent<Protester>()){
 			if(other.GetComponent<Protester>().despawning){
 				Destroy(other.gameObject);
