@@ -7,6 +7,11 @@ TagManager:
   - Stamp
   - papers
   - desk
+  - stampPosition
+  - approve
+  - veto
+  - VR_Stamps
+  - DESKTOP_Stamp
   layers:
   - Default
   - TransparentFX

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VRTK;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public BillTextChange billTextChange;
 
     public int remainingLives = 10;
+
 
     public void BillTimerIsOver()
     {
@@ -39,14 +41,36 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetNewBill();
+        SetDesktopOrVRStamps();
     }
 
     void Update() {
 
     }
 
+    public void SetDesktopOrVRStamps()
+    {
+        VRTK_SDKSetup vrtkSetup = VRTK_SDKManager.instance.loadedSetup;
+
+        if (vrtkSetup == null)
+        {
+            GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
+            foreach(GameObject stamp in vrStamps)
+            {
+                stamp.gameObject.SetActive(false);
+            }
+            Debug.Log("No setup is loaded");
+        }
+        else
+        {
+            GameObject desktopStamp = GameObject.FindGameObjectWithTag("Desktop_Stamp");
+            desktopStamp.gameObject.SetActive(false);
+        }
+    }
+
     public void GetNewBill()
     {
+        StampBill.Instance.DeleteStamp();
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
         Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
 

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cfdcd5b3d009caa40b68295d870cdebe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - newStamp: {instanceID: 0}
+  - approved: {fileID: 7026762976453037849, guid: 26331cb0a99647349b006d486019b054,
+      type: 3}
+  - veto: {fileID: 4683496812419448412, guid: f455a7e635fbc6a4380d7dd112551dc6, type: 3}
+  - currentStamp: {instanceID: 0}
+  - stampPosition: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
