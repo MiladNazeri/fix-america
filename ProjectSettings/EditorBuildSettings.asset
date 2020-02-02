@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/OvalOffice.unity
+    path: Assets/Scenes/OvalOffice-theod.unity
     guid: d183f65b15722e7499e4bd002b9e2b22
   - enabled: 1
     path: Assets/Scenes/end_scene.unity
