@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1215,6 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 804340854}
 --- !u!1 &156997296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4267,6 +4268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 545066424}
 --- !u!1001 &665359630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4930,6 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 804340854}
 --- !u!1001 &715438070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5649,6 +5652,7 @@ GameObject:
   - component: {fileID: 804340857}
   - component: {fileID: 804340856}
   - component: {fileID: 804340855}
+  - component: {fileID: 804340859}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -5744,6 +5748,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &804340859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804340853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &805316811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,6 +6044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 804340854}
 --- !u!1001 &841916557
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8104,6 +8140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 804340854}
 --- !u!1 &1119736448
 GameObject:
   m_ObjectHideFlags: 0
@@ -11435,6 +11472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 0}
 --- !u!1 &1466921708
 GameObject:
   m_ObjectHideFlags: 0
@@ -13860,6 +13898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52085aa77642d6d4bb55e6388b2a983f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  averagePopularity: 75
+  daysPlayed: 0
 --- !u!114 &1927200172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15188,6 +15228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7718ac6c8c9f04ba2871481da4656af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookAtTarget: {fileID: 804340854}
 --- !u!1 &2060468000
 GameObject:
   m_ObjectHideFlags: 0
