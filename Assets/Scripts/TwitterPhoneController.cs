@@ -64,6 +64,10 @@ public class TwitterPhoneController: MonoBehaviour
 		timerInProgress = false;
 	}
 
+	public void OnTriggerEnter(Collider other) {
+		Debug.Log($"Collision with phone: {other.gameObject.name}");
+	}
+
 	private void Update()
 	{
 		if (forceTweetFromEditor)
