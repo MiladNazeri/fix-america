@@ -34,22 +34,17 @@ public class GameManager : MonoBehaviour
         GetNewBill();
     }
 
-    //stamp one bill, with timer, if timer hits 0 you lose
-void Start () {
-    GetNewBill();
-}
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Approve();
+        }
 
-void Update() {
-    if(Input.GetKeyDown(KeyCode.Alpha1))
-    {
-        Approve();
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Veto();
+        }
     }
-
-    if(Input.GetKeyDown(KeyCode.Alpha2))
-    {
-        Veto();
-    }
-}
 
     public void GetNewBill()
     {
