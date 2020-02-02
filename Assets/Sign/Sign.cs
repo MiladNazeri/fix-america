@@ -29,6 +29,6 @@ public class Sign : MonoBehaviour
 
     void Start() 
     {
-        text.SetText(GameState.Instance.CurrentBill.Item2);
+        text.SetText("We are all " + GameState.Instance.CurrentBill.Item2);
     }
 }
