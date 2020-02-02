@@ -8,6 +8,25 @@ public class GameState: MonoBehaviour
     public Tuple<string, string, string> CurrentBill { get; set; }
     public static GameState Instance { get; private set; }
 
+    public enum State 
+    {
+        Title,
+        Playing,
+        End,
+    }
+
+    State state;
+
+    public void SetState() 
+    {
+        switch(state)
+        {
+            case State.Title: break;
+            case State.Playing: break;
+            case State.End: break;
+        }
+    }
+
     private void Awake() {
         if (null == Instance) {
             Instance = this;
