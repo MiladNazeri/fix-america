@@ -254,4 +254,9 @@ public class Backend : MonoBehaviour
 		protesterManager?.SetProtesterAmount(popularity); 
 
 	}
+
+	public void Reset() {
+		alreadyDrawnBills.Clear();
+		allDrawnBills.Clear();
+	}
 }
