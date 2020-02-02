@@ -6230,6 +6230,36 @@ Transform:
   m_Father: {fileID: 1254949556}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &210827803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210827804}
+  m_Layer: 0
+  m_Name: FRONT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &210827804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210827803}
+  m_LocalRotation: {x: 0.04658838, y: -0, z: -0, w: 0.9989142}
+  m_LocalPosition: {x: -17.509998, y: -7.42, z: 104.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 815384011}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 5.341, y: 0, z: 0}
 --- !u!1 &216220303
 GameObject:
   m_ObjectHideFlags: 0
@@ -17518,13 +17548,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545066420}
-  m_LocalRotation: {x: 0.04658838, y: -0, z: -0, w: 0.9989142}
-  m_LocalPosition: {x: -17.509998, y: -7.42, z: 104.13}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 815384011}
+  m_Father: {fileID: 559479867}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.341, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546345239
 GameObject:
   m_ObjectHideFlags: 0
@@ -17846,6 +17876,37 @@ Transform:
   m_Father: {fileID: 397202340}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &559479866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559479867}
+  m_Layer: 0
+  m_Name: TOP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559479867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559479866}
+  m_LocalRotation: {x: 0.3467673, y: 0.1304443, z: -0.048966102, w: 0.9275447}
+  m_LocalPosition: {x: 10.5, y: 6.3, z: 96.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 545066424}
+  m_Father: {fileID: 815384011}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 41, y: 16, z: -0.028}
 --- !u!1 &559582857
 GameObject:
   m_ObjectHideFlags: 0
@@ -20855,7 +20916,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 815384011}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &658725867
 MonoBehaviour:
@@ -25704,6 +25765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815384011}
+  - component: {fileID: 815384012}
   m_Layer: 0
   m_Name: News
   m_TagString: Untagged
@@ -25722,15 +25784,31 @@ Transform:
   m_LocalPosition: {x: -16.3, y: 10.117714, z: -113.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 545066424}
+  - {fileID: 658725866}
   - {fileID: 1990212951}
   - {fileID: 137663185}
   - {fileID: 977363062}
   - {fileID: 723675276}
-  - {fileID: 658725866}
+  - {fileID: 210827804}
+  - {fileID: 559479867}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &815384012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815384010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85eab5529210c4212b254d670bed8cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  front: {fileID: 210827804}
+  top: {fileID: 559479867}
+  news: {fileID: 545066423}
 --- !u!1 &816630335
 GameObject:
   m_ObjectHideFlags: 0
