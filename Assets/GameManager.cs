@@ -45,31 +45,29 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetNewBill();
-        SetDesktopOrVRStamps();
     }
 
-    void Update() {
 
-    }
-
-    public void SetDesktopOrVRStamps()
+    public void SetupDesktopStamps()
     {
-        VRTK_SDKSetup vrtkSetup = VRTK_SDKManager.instance.loadedSetup;
+        GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
+        foreach (GameObject stamp in vrStamps)
+        {
+            stamp.gameObject.SetActive(false);
+        }
+        GameObject desktopStamp = GameObject.FindGameObjectWithTag("DESKTOP_Stamp");
+        desktopStamp.gameObject.SetActive(true);
+    }
 
-        if (vrtkSetup == null)
+    public void SetupVRStamps()
+    {
+        GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
+        foreach (GameObject stamp in vrStamps)
         {
-            GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
-            foreach(GameObject stamp in vrStamps)
-            {
-                stamp.gameObject.SetActive(false);
-            }
-            Debug.Log("No setup is loaded");
+            stamp.gameObject.SetActive(true);
         }
-        else
-        {
-            GameObject desktopStamp = GameObject.FindGameObjectWithTag("Desktop_Stamp");
-            desktopStamp.gameObject.SetActive(false);
-        }
+        GameObject desktopStamp = GameObject.FindGameObjectWithTag("DESKTOP_Stamp");
+        desktopStamp.gameObject.SetActive(false);
     }
 
     public void GetNewBill()
