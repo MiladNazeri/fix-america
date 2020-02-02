@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
 
     public BillTextChange billTextChange;
 
+    public GameObject veto;
+    public GameObject approve;
+    public GameObject desktopStamp;
+
     public void BillTimerIsOver()
     {
         Lose();
@@ -45,31 +49,22 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetNewBill();
-        SetDesktopOrVRStamps();
     }
 
-    void Update() {
 
-    }
-
-    public void SetDesktopOrVRStamps()
+    public void SetupDesktopStamps()
     {
-        VRTK_SDKSetup vrtkSetup = VRTK_SDKManager.instance.loadedSetup;
+        Debug.Log("Setting up desktop stamps");
+        veto.SetActive(false);
+        approve.SetActive(false);
+        desktopStamp.SetActive(true);
+    }
 
-        if (vrtkSetup == null)
-        {
-            GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
-            foreach(GameObject stamp in vrStamps)
-            {
-                stamp.gameObject.SetActive(false);
-            }
-            Debug.Log("No setup is loaded");
-        }
-        else
-        {
-            GameObject desktopStamp = GameObject.FindGameObjectWithTag("Desktop_Stamp");
-            desktopStamp.gameObject.SetActive(false);
-        }
+    public void SetupVRStamps()
+    {
+        veto.SetActive(true);
+        approve.SetActive(true);
+        desktopStamp.SetActive(false);
     }
 
     public void GetNewBill()
