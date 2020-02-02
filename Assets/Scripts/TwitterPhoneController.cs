@@ -10,6 +10,7 @@ public class TwitterPhoneController: MonoBehaviour
 	public TextMeshPro tweetsRemaining;
 	public GameObject ThumbUp;
 	public GameObject ThumbDown;
+	public GameObject Shrug;
 
 	private int timerEndTime = 0;
 	private bool timerInProgress = false;
@@ -42,6 +43,7 @@ public class TwitterPhoneController: MonoBehaviour
 
 	public void Tweet()
 	{
+		Debug.Log($"remainingTweets: {remainingTweets}");
 		if (remainingTweets <= 0)
 		{
 			currentDisplay = TwitterDisplays.SORRY;
@@ -104,14 +106,22 @@ public class TwitterPhoneController: MonoBehaviour
 			case TwitterDisplays.NONE:
 				ThumbUp.SetActive(false);
 				ThumbDown.SetActive(false);
+				Shrug.SetActive(false);
 			break;
 			case TwitterDisplays.THUMB_UP:
 				ThumbUp.SetActive(true);
 				ThumbDown.SetActive(false);
+				Shrug.SetActive(false);
 			break;
 			case TwitterDisplays.THUMB_DOWN:
 				ThumbUp.SetActive(false);
 				ThumbDown.SetActive(true);
+				Shrug.SetActive(false);
+			break;
+			case TwitterDisplays.SORRY:
+				ThumbUp.SetActive(false);
+				ThumbDown.SetActive(false);
+				Shrug.SetActive(true);
 			break;
 		}
 	}
