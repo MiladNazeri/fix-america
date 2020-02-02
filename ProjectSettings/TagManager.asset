@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stamp
   - papers
+  - desk
   layers:
   - Default
   - TransparentFX

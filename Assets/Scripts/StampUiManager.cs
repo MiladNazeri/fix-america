@@ -10,6 +10,7 @@ public class StampUiManager : MonoBehaviour
     public GameObject newStamp;
     public GameObject stampPosition;
     public List<GameObject> deskStamps;
+    public string StampType;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class StampUiManager : MonoBehaviour
     {
         Debug.Log("on veto pressed");
         currentStamp = veto;
-        ShowStamp(false);
+        ShowPaperStamp(false);
         StampMove();
     }
 
@@ -34,7 +35,7 @@ public class StampUiManager : MonoBehaviour
     {
         Debug.Log("on sign pressed");
         currentStamp = approved;
-        ShowStamp(false);
+        ShowPaperStamp(false);
         StampMove();
     }
 
@@ -44,6 +45,7 @@ public class StampUiManager : MonoBehaviour
 
         stampAnimation.Play("StampAnimations");
         StampAudio.instance.PlayStampSound();
+        ShowPaperStamp(true);
     }
 
     public void ShowPaperStamp(bool shouldShow) {
@@ -53,7 +55,30 @@ public class StampUiManager : MonoBehaviour
             newStamp = Instantiate(currentStamp, stampPosition.transform.position, Quaternion.Euler(90, 0, 0));
         } else
         {
+            Debug.Log("destroying paper stamp");
             Destroy(newStamp);
+        }
+    }
+
+    public void ShowDeskStamp(string type, Vector3 collisionPosition)
+    {
+        GameObject typeToUse;
+        if (type == "veto")
+        {
+            typeToUse = veto;
+        } else
+        {
+            typeToUse = approved;
+        }
+        GameObject go = Instantiate(typeToUse, collisionPosition, Quaternion.Euler(90, 0, 0));
+        deskStamps.Add(go);
+    }
+
+    public void DeleteDeskStamps()
+    {
+        foreach (GameObject stamp in deskStamps)
+        {
+            Destroy(stamp);
         }
     }
 
@@ -62,10 +87,29 @@ public class StampUiManager : MonoBehaviour
         Debug.Log("collision for stamp");
         if (collision.gameObject.CompareTag("papers"))
         {
-            ShowPaperStamp(true);
-        } else
+            Debug.Log("collision for papers");
+            if (StampType == "veto")
+            {
+                onVeto();
+            } else
+            {
+                onSign();
+            }
+        } else if (collision.gameObject.CompareTag("desk"))
         {
+            Debug.Log("collision for desk");
 
+            Vector3 position = collision.GetContact(0).point;
+            StampAudio.instance.PlayStampSound();
+
+            if (StampType == "veto")
+            {
+                ShowDeskStamp("veto", position);
+            }
+            else
+            {
+                ShowDeskStamp("approve", position);
+            }
         }
     }
 }
