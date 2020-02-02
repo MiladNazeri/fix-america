@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetNewBill();
+        MusicManager.Instance.PlayGamePlayMusic();
     }
 
 
