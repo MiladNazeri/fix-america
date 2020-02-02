@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         StampBill.Instance.DeleteStamp();
         GameState.Instance.daysPlayed++;
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
-        Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
+        Debug.LogWarning($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
 
         billTextChange.SetText(GameState.Instance.CurrentBill.Item1);
 
