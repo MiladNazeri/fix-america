@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject approve;
     public GameObject desktopStamp;
 
+    public bool forceLoseFromEditor = false;
     bool canStampNewBill = true;
 
     public void BillTimerIsOver()
@@ -39,6 +40,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (forceLoseFromEditor)
+        {
+            forceLoseFromEditor = false;
+            Lose(true);
+        }
+    }
+
     private void Awake() {
         if (null == Instance) {
             Instance = this;
@@ -52,6 +62,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetNewBill();
+        MusicManager.Instance.PlayGamePlayMusic();
     }
 
 
