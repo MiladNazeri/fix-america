@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
 
     public BillTextChange billTextChange;
 
+    public GameObject veto;
+    public GameObject approve;
+    public GameObject desktopStamp;
+
     public void BillTimerIsOver()
     {
         Lose();
@@ -50,24 +54,17 @@ public class GameManager : MonoBehaviour
 
     public void SetupDesktopStamps()
     {
-        GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
-        foreach (GameObject stamp in vrStamps)
-        {
-            stamp.gameObject.SetActive(false);
-        }
-        GameObject desktopStamp = GameObject.FindGameObjectWithTag("DESKTOP_Stamp");
-        desktopStamp.gameObject.SetActive(true);
+        Debug.Log("Setting up desktop stamps");
+        veto.SetActive(false);
+        approve.SetActive(false);
+        desktopStamp.SetActive(true);
     }
 
     public void SetupVRStamps()
     {
-        GameObject[] vrStamps = GameObject.FindGameObjectsWithTag("VR_Stamps");
-        foreach (GameObject stamp in vrStamps)
-        {
-            stamp.gameObject.SetActive(true);
-        }
-        GameObject desktopStamp = GameObject.FindGameObjectWithTag("DESKTOP_Stamp");
-        desktopStamp.gameObject.SetActive(false);
+        veto.SetActive(true);
+        approve.SetActive(true);
+        desktopStamp.SetActive(false);
     }
 
     public void GetNewBill()

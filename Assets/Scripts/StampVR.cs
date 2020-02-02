@@ -9,7 +9,7 @@ public class StampVR : MonoBehaviour
     public string stampType;
     public GameObject approved;
     public GameObject veto;
-    bool _isGrabbed = false;
+    bool _isGrabbed = true;
 
     public GameObject StampBill;
 
