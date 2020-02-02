@@ -84,6 +84,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   despawning: 0
+  arrived: 0
+  lastPosition: {x: 0, y: 0, z: 0}
+  positionCheckInterval: 3
+  minWalkCheckDistance: 2
 --- !u!54 &1631073964912887922
 Rigidbody:
   m_ObjectHideFlags: 0
