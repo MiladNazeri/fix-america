@@ -7,7 +7,7 @@ using UnityEngine;
 public class ProtesterGoal : MonoBehaviour
 {
 	
-
+	public Transform lookAtTarget;
 
     // Update is called once per frame
     void Update()

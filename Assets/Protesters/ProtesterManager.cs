@@ -90,10 +90,10 @@ public class ProtesterManager : MonoBehaviour
         int pick = Random.Range(0, (spawnPoints.Length - 1));
         return spawnPoints[pick].transform.position;
     }
-    Vector3 randomGoal()
+    ProtesterGoal randomGoal()
     {
         Random rand = new Random();
         int pick = Random.Range(0, (goals.Length - 1));
-        return goals[pick].transform.position;
+        return goals[pick];
     }
 }
