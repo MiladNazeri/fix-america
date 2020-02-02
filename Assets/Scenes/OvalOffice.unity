@@ -26304,6 +26304,7 @@ MonoBehaviour:
   daysPlayed: 0
   veryPopularBills: 0
   riotBills: 0
+  remainingLives: 8
 --- !u!114 &1927200172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26331,8 +26332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce05ce777bef54fcab70c5465c515e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  golfBagsParent: {fileID: 945239501}
   billTextChange: {fileID: 1927200175}
-  remainingLives: 10
 --- !u!4 &1927200174
 Transform:
   m_ObjectHideFlags: 0

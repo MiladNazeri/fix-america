@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public const int POPULARITY_AVG_LOSING_THRESHOLD = 50;
     public const float TIME_BETWEEN_BILLS_SECONDS = 3f;
 
+    public GameObject golfBagsParent;
+
     public BillTextChange billTextChange;
 
 
@@ -22,8 +24,11 @@ public class GameManager : MonoBehaviour
 
     public void Lose(bool force=false) {
         GameState.Instance.remainingLives--;
+        Destroy(golfBagsParent.transform.GetChild(0).gameObject);
         if (GameState.Instance.remainingLives == 0 || force) {
             SceneManager.LoadScene("end_scene");
+        } else {
+            GetNewBill();
         }
     }
 
