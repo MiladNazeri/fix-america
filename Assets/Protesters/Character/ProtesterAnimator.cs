@@ -9,6 +9,8 @@ public class ProtesterAnimator : MonoBehaviour
 	public Transform Head;
 	public Transform Body;
 	//public Transform Head;
+
+	public float headRotationMax;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,9 @@ public class ProtesterAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+		float rotX =  Mathf.Sin(Time.time) * headRotationMax;
+		float rotY =  Mathf.Sin(Time.time) * headRotationMax;
+
+		//Head.transform.rotation.eulerAngles = new Vector3(rotX, 0.0f, rotY);
     }
 }
