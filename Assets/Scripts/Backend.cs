@@ -39,7 +39,7 @@ public class Backend : MonoBehaviour
 		// "Conduct an assessment of",
 		"Issue reparations of",
 		// "Legalize psychedelics for",
-		 "Waterboard all",
+		 // "Waterboard all",
 	};
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
