@@ -7,6 +7,8 @@ public class Sign : MonoBehaviour
 {
     public GameObject paper;
 
+	public Renderer boardRenderer;
+	
     public enum Size 
     {
         Small, Medium, Large
@@ -85,6 +87,11 @@ public class Sign : MonoBehaviour
 		//randomization
 		float randomSize = Mathf.Lerp(minSize, maxSize, Random.value);
 		board.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
-
+		//color
+		Color signColor = new Color(1.0f,0.0f,1.0f,1.0f);
+		float signHue = Random.value;
+		float signSaturation = Random.value;
+		signColor = Color.HSVToRGB(signHue, signSaturation, 1.0f);
+		boardRenderer.material.color = signColor;
     }
 }
