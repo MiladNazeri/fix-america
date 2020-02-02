@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
 
     public BillTextChange billTextChange;
 
-    public int remainingLives = 10;
 
     public void BillTimerIsOver()
     {
@@ -22,8 +21,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void Lose(bool force=false) {
-        remainingLives--;
-        if (remainingLives == 0 || force) {
+        GameState.Instance.remainingLives--;
+        if (GameState.Instance.remainingLives == 0 || force) {
             SceneManager.LoadScene("end_scene");
         }
     }
