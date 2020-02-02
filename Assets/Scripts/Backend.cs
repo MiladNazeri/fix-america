@@ -12,7 +12,7 @@ public class Backend : MonoBehaviour
 		"Decriminalize",
 		"Reduce Tax on",
 		"Direct the Homeland Security council to protect the",
-		"Authorize grants for",
+		"Authorize research grants of",
 		"Direct a study by the National Academy of Medicine for",
 		"End the epidemic of",
 		"Enlist the Director for Disease Control and Prevention to support activities regarding all",
@@ -20,6 +20,7 @@ public class Backend : MonoBehaviour
 		"Promote the suffering of",
 		"Mint coins in commemoration of",
 		"Award Congressional Gold Medals to",
+		"Give $1000 to all"
     };
 
 	List<string> negative_verbs = new List<string>() {
@@ -31,14 +32,13 @@ public class Backend : MonoBehaviour
 		"Freeze all assets of",
 		"Declare war on",
 		"Ban all",
-		"Increase Regulations on",
 		"Declare national emergency on",
 		"Eliminate public funding of",
-		"Authorize the Marshal of the Supreme Court and the Supreme Court Police to protect the",
-		"Enact a state of emergency for",
-		"Direct the Comptroller General to conduct an assessment of",
-		"Issue reparations for",
-		"Legalize invasion of privacy for",
+		"Authorize the Marshal of the Supreme Court to protect the",
+		"Enact a state of emergency of",
+		"Conduct an assessment of",
+		"Issue reparations of",
+		"Legalize psychedelics for",
     };
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
@@ -60,17 +60,18 @@ public class Backend : MonoBehaviour
             {"Flat Earthers", null},
 			{"Electric Vehicle Owners", null},
 			{"VIM users", null},
-			{"Virgins", null},
-			{"Patriots", null},
-			{"Commuters", null},
-			{"Parents", null},
-			{"Single ladies", null},
 			{"Gun owners", null},
 			{"Anti-Vaxxers", null},
 			{"Weather enthusiasts", null},
 			{"Victims of Facebook", null},
 			{"Googlers", null},
 			{"Terrorists", null},
+			{"Pickup truck drivers", null},
+			{"People who shop at Whole Foods", null},
+			{"Streamers", null},
+			{"Basic Bitches", null},
+			{"Body Builders", null},
+			{"Multi-Level Marketers", null},
         };
 
     public float happyGroupMultiplier = 1f;
