@@ -65,10 +65,10 @@ public class ProtesterManager : MonoBehaviour
 
         if (Random.Range(0, 100) < protesterSignPercent)
         {
-            Transform hand = newProtester.transform.Find("ProtesterModel").Find("HandLeft");
+            Transform hand = newProtester.transform.Find("ProtesterModel").Find("Body").Find("HandLeft");
             if (Random.Range(0, 100) > 50)
             {
-                hand = newProtester.transform.Find("ProtesterModel").Find("HandRight");
+                hand = newProtester.transform.Find("ProtesterModel").Find("Body").Find("HandRight");
             }
 
             GameObject s = Instantiate(sign, hand.transform);

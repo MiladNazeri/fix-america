@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paper: {fileID: 4178910043156593078}
+  boardRenderer: {fileID: 8757985406731246565}
   textSizes:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
