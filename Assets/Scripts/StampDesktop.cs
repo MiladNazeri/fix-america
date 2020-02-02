@@ -43,7 +43,7 @@ public class StampDesktop : MonoBehaviour
 
     public IEnumerator MakeStamp()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.09f);
         StampBill.GetComponent<StampBill>().MakeNewStamp();
         StampAudio.instance.PlayStampSound();
     }

@@ -416,6 +416,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lookAtTarget: {fileID: 0}
+--- !u!1 &28565485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7905993234263241858, guid: b29c8f0e9a03b0f4fbd622ee5f72b3d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1292304444}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &28565488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28565485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_CameraOutput: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &30106059
 GameObject:
   m_ObjectHideFlags: 0
@@ -11789,6 +11826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1396077660}
   - component: {fileID: 1396077661}
+  - component: {fileID: 1396077662}
   m_Layer: 0
   m_Name: VRSimulator
   m_TagString: Untagged
@@ -11850,6 +11888,35 @@ MonoBehaviour:
     fallbackTypeName: VRTK.SDK_FallbackController
     typeName: VRTK.SDK_SimController
     descriptionIndex: 0
+--- !u!114 &1396077662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396077659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b735211070be4ef78c7e7adcbda6ea7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1927200173}
+        m_MethodName: SetDesktopOrVRStamps
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUnloaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1396984878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16846,6 +16913,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040323812}
   - component: {fileID: 2040323813}
+  - component: {fileID: 2040323814}
   m_Layer: 0
   m_Name: Oculus
   m_TagString: Untagged
@@ -16908,6 +16976,35 @@ MonoBehaviour:
     fallbackTypeName: VRTK.SDK_FallbackController
     typeName: VRTK.SDK_OculusController
     descriptionIndex: 0
+--- !u!114 &2040323814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040323811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b735211070be4ef78c7e7adcbda6ea7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoaded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1927200173}
+        m_MethodName: SetDesktopOrVRStamps
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnUnloaded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2043426935
 GameObject:
   m_ObjectHideFlags: 0
