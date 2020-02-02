@@ -36,6 +36,10 @@ public class Protester : MonoBehaviour
 		if(arrived){
 			if(lookAtTarget != null){
 				transform.LookAt(lookAtTarget);
+				//prevent protesters from looking up
+				Vector3 currentEulers = transform.localEulerAngles;
+				Vector3 fixedEulerAngles = new Vector3(0.0f, currentEulers.y, currentEulers.z);
+				transform.localEulerAngles = fixedEulerAngles;
 			}
 		}
     }
