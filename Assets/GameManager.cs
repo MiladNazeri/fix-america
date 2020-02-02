@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
 
     public void Lose(bool force=false) {
         GameState.Instance.remainingLives--;
-        Destroy(golfBagsParent.transform.GetChild(0).gameObject);
         if (GameState.Instance.remainingLives == 0 || force) {
             SceneManager.LoadScene("end_scene");
         } else {
+            Destroy(golfBagsParent.transform.GetChild(0).gameObject);
             GetNewBill();
         }
     }
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         StampBill.Instance.DeleteStamp();
         GameState.Instance.daysPlayed++;
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
-        Debug.LogWarning($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
+        Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
 
         billTextChange.SetText(GameState.Instance.CurrentBill.Item1);
 
