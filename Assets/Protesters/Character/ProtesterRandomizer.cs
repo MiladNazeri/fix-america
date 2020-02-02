@@ -9,10 +9,13 @@ public class ProtesterRandomizer : MonoBehaviour
 	public Renderer rightHandRenderer;
 	public Renderer BodyRenderer;
 
-	int globalSeed = 0;
+	static int globalSeed = 0;
 
     void Start()
     {
+		globalSeed += 1;
+		Random.InitState(globalSeed);
+		//Debug.Log("global seed is " + globalSeed.ToString());
 		//global
 		Color skinColor = new Color(1.0f,0.0f,1.0f,1.0f);
 		float skinIntensity = Random.value * 0.5f; //max 0.5 because otherwise people get too yellow
