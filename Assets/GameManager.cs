@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void GetNewBill()
     {
+        GameState.Instance.daysPlayed++;
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
         Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
 
