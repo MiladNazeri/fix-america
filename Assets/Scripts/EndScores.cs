@@ -11,4 +11,9 @@ public class EndScores: MonoBehaviour
         gameObject.GetComponent<TextMeshPro>().text = 
             $"YOU WERE IMPEACHED\nTIME IN OFFICE: {GameState.Instance?.daysPlayed} days\nAVG POPULARITY: {GameState.Instance?.averagePopularity}%\nAMAZING BILLS: {GameState.Instance?.veryPopularBills}\nRIOT-CAUSING BILLS: {GameState.Instance?.riotBills}";
     }
+
+    public void PlayAgain() 
+    {
+        GameState.Instance.SetState(GameState.State.Playing);
+    }
 }
