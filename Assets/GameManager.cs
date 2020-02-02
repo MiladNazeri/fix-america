@@ -42,15 +42,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Approve();
-        }
 
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            Veto();
-        }
     }
 
     public void GetNewBill()
