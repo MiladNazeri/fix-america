@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -13249,6 +13249,7 @@ MonoBehaviour:
   goals: []
   sign: {fileID: 8691335257266356934, guid: 05cecdac6e7d44abc94afb8b494c2bd6, type: 3}
   protesterSignPercent: 10
+  maxProtesters: 200
 --- !u!4 &413073106
 Transform:
   m_ObjectHideFlags: 0
@@ -22956,8 +22957,8 @@ MonoBehaviour:
   hideHandsAtSwitch: 0
   resetHandsAtSwitch: 1
   showHandAxisHelpers: 1
-  lockMouseToView: 1
-  mouseMovementInput: 0
+  lockMouseToView: 0
+  mouseMovementInput: 1
   handMoveMultiplier: 0.2
   handRotationMultiplier: 30
   playerMoveMultiplier: 5
