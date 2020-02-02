@@ -16,7 +16,7 @@ public class Backend : MonoBehaviour
 		"Provide a study by the National Academy of Medicine for",
 		"Establish a refund of grants for",
 		"End the epidemic of",
-		"Enlist the Director of the Centers for Disease Control and Prevention, to carry out a national program to conduct and support activities regarding all",
+		"Enlist the Director for Disease Control and Prevention to carry out a national program to conduct and support activities regarding all",
 		"Reauthorize mandatory funding programs for",
 		"Extend the program of temporary assistance for",
 		"Promote the suffering of",
@@ -37,11 +37,9 @@ public class Backend : MonoBehaviour
 		"Declare national emergency on",
 		"Eliminate public funding of",
 		"Authorize the Marshal of the Supreme Court and the Supreme Court Police to protect the",
-		"Amend the Balanced Budget and Emergency Deficit Control Act of",
 		"Make emergency supplemental appropriations for",
 		"Direct the Comptroller General of the United States to conduct an assessment of the responsibilities, workload, and vacancy rates of",
-		"Require the Director of the Office of Management and Budget to issue guidance on", 
-		"Create new ISO Standards for",
+		"Authorize the Director of Management and Budget to issue reparations for", 
     };
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
