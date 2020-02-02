@@ -349,6 +349,8 @@ MonoBehaviour:
   protesterPrefab: {fileID: 499224472291750786, guid: c1303c405dea24ca1844388343ada98b,
     type: 3}
   goals: []
+  sign: {fileID: 8691335257266356934, guid: 05cecdac6e7d44abc94afb8b494c2bd6, type: 3}
+  protesterSignPercent: 10
 --- !u!1 &342465619
 GameObject:
   m_ObjectHideFlags: 0
