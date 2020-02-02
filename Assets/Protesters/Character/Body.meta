@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Font.meta
+guid: eb15ec0dbab344ccb8bf90858796460d
+=======
 guid: 539ee50cbf91b41b48e5d2f8b435d475
+>>>>>>> Protesters:Assets/Protesters/Character/Body.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

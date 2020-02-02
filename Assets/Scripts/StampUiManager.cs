@@ -20,7 +20,15 @@ public class StampUiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            onSign();
+        }
 
+        if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            onVeto();
+        }
     }
 
     public void onVeto()
@@ -29,6 +37,7 @@ public class StampUiManager : MonoBehaviour
         currentStamp = veto;
         ShowPaperStamp(false);
         StampMove();
+        GameManager.Instance.Veto();
     }
 
     public void onSign()
@@ -37,6 +46,7 @@ public class StampUiManager : MonoBehaviour
         currentStamp = approved;
         ShowPaperStamp(false);
         StampMove();
+        GameManager.Instance.Approve();
     }
 
     public void StampMove()
@@ -97,7 +107,7 @@ public class StampUiManager : MonoBehaviour
             }
         } else if (collision.gameObject.CompareTag("desk"))
         {
-            Debug.Log("collision for desk");
+            // Debug.Log("collision for desk");
 
             Vector3 position = collision.GetContact(0).point;
             StampAudio.instance.PlayStampSound();

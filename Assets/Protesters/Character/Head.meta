@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Low_poly_styled_trees.meta
+guid: bb4aa5828449d415c855472964a74390
+=======
 guid: adf2763edb8054dc0adca349c2bb03d5
+>>>>>>> Protesters:Assets/Protesters/Character/Head.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -193,30 +193,42 @@ public class Backend : MonoBehaviour
 
 	public ProtesterManager protesterManager;
 
+	private void updateAvgPopularity(int popularity)
+	{
+		GameState.Instance.averagePopularity = (
+			GameState.Instance.averagePopularity * GameState.Instance.daysPlayed
+		 	+ popularity
+		) / (GameState.Instance.daysPlayed + 1);
+		if (GameState.Instance.daysPlayed > GameManager.DAYS_OF_IMMUNITY
+			&& GameState.Instance.averagePopularity < GameManager.POPULARITY_AVG_LOSING_THRESHOLD)
+		{
+			GameManager.Instance.Lose(true);
+		}
+	}
+
 	public void ApproveBill() 
 	{
-		Debug.Log("Generating a new bill.");
+		Debug.Log("Backend::ApproveBill()");
 		
-
-		
-		var popularity = Backend.Instance.GetBillPopularity(
-			GameState.Instance.CurrentBill.Item2,
-			GameState.Instance.CurrentBill.Item3
-		);
-		Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
-		Debug.Log($"Potential popularity of the bill is: {(int)(popularity * 100)}%.");
-
-		protesterManager.SetProtesterAmount((int)((1f-popularity) * 100f)); 
+		var popularity = (int) (Backend.Instance.GetBillPopularity(
+					GameState.Instance.CurrentBill.Item2,
+					GameState.Instance.CurrentBill.Item3
+				) * 100);
+		updateAvgPopularity(popularity);
+		TVController.Instance.DisplayPopularity(popularity);
+		protesterManager?.SetProtesterAmount(100 - popularity); 
 	}
 
 	public void DeclineBill() 
 	{
-		var popularity = Backend.Instance.GetBillPopularity(
-			GameState.Instance.CurrentBill.Item2,
-			GameState.Instance.CurrentBill.Item3
-		);
+		var popularity = (int) (Backend.Instance.GetBillPopularity(
+					GameState.Instance.CurrentBill.Item2,
+					GameState.Instance.CurrentBill.Item3
+				) * 100);
 
-		protesterManager.SetProtesterAmount((int)(popularity * 100f)); 
+		updateAvgPopularity(popularity);
+		TVController.Instance.DisplayPopularity(100 - popularity);
+		protesterManager?.SetProtesterAmount(popularity); 
 
 	}
 }
