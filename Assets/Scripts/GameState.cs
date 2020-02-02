@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameState: MonoBehaviour
 {
@@ -22,13 +23,17 @@ public class GameState: MonoBehaviour
 
     State state;
 
-    public void SetState() 
+    public void SetState(State state) 
     {
         switch(state)
         {
             case State.Title: break;
-            case State.Playing: break;
-            case State.End: break;
+            case State.Playing: 
+            SceneManager.LoadScene("OvalOffice");
+            break;
+            case State.End: 
+            SceneManager.LoadScene("end_scene");
+            break;
         }
     }
 

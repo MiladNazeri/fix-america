@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
         GameState.Instance.remainingLives--;
         Destroy(golfBagsParent.transform.GetChild(0).gameObject);
         if (GameState.Instance.remainingLives == 0 || force) {
-            SceneManager.LoadScene("end_scene");
+            
+            GameState.Instance.SetState(GameState.State.End);
         } else {
             GetNewBill();
         }
