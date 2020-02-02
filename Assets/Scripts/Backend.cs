@@ -43,6 +43,7 @@ public class Backend : MonoBehaviour
 	};
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
+	public HashSet<string> allDrawnBills = new HashSet<string>();
 
 	long maxBillsPosibilitiesNumber = Int64.MaxValue;
 
@@ -165,6 +166,7 @@ public class Backend : MonoBehaviour
 			}	
 		} while (alreadyDrawnBills.Contains(actual_text));
 		alreadyDrawnBills.Add(actual_text);
+		allDrawnBills.Add(actual_text);
 		return new Tuple<string, string, string>(actual_text, g_neg, g_pos);
 	}
 	

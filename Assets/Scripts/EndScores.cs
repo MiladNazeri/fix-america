@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndScores: MonoBehaviour
 {
@@ -14,6 +15,6 @@ public class EndScores: MonoBehaviour
 
     public void PlayAgain() 
     {
-        GameState.Instance.SetState(GameState.State.Playing);
+         SceneManager.LoadScene("OvalOffice");
     }
 }

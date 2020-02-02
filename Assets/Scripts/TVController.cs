@@ -34,6 +34,11 @@ public class TVController : MonoBehaviour
     	TVPopularityText.text = text + rethoric + avg;
     }
 
+    public void ShowUserGoodStuff(string s)
+    {
+        TVPopularityText.text = s;
+    }
+
     public void StartTimerForSeconds(int seconds, TimerCallbackDelegate callback)
     {
     	timerCallback = callback;

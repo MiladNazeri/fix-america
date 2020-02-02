@@ -25,6 +25,11 @@ public class ProtesterAnimator : MonoBehaviour
 	float headRotationSpeed;
 	float headNodSpeed;
 
+	public Renderer faceRenderer;
+	public float maxFacialExpressionChangeTime;
+	float lastFacialExpressionChangeTime;
+	float currentFacialExpressionChangeTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,8 @@ public class ProtesterAnimator : MonoBehaviour
 		headNodAmount = Random.value * headRotationMax;
 		headRotationSpeed = Random.value;
 		headNodSpeed = Random.value;
+		lastFacialExpressionChangeTime = Time.time;
+		currentFacialExpressionChangeTime = 1.0f;
     }
 
     // Update is called once per frame
@@ -57,5 +64,14 @@ public class ProtesterAnimator : MonoBehaviour
 		float armOffsetRight =  Mathf.Sin(Time.time + randomOffsetRightHand) * armOffsetMax * randomValueRightHand;
 		Vector3 offPosR = new Vector3(0.0f, armOffsetRight, 0.0f);
 		RightArm.localPosition = originalRightArmPosition + offPosR;
+
+		//change facial expression
+		if(Time.time - currentFacialExpressionChangeTime > lastFacialExpressionChangeTime){
+			
+			currentFacialExpressionChangeTime = Random.Range(0.0f, maxFacialExpressionChangeTime);
+			lastFacialExpressionChangeTime = Time.time;
+			faceRenderer.material.SetFloat("_FaceExpression", Random.Range(0,7));
+			//Debug.Log("changing face: " + );
+		}
     }
 }
