@@ -73817,7 +73817,7 @@ MonoBehaviour:
   daysPlayed: 0
   veryPopularBills: 0
   riotBills: 0
-  remainingLives: 8
+  remainingLives: 4
 --- !u!114 &1927200172
 MonoBehaviour:
   m_ObjectHideFlags: 0
