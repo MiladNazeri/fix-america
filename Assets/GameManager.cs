@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject approve;
     public GameObject desktopStamp;
 
+    public bool forceLoseFromEditor = false;
+
     public void BillTimerIsOver()
     {
         Lose();
@@ -34,6 +36,15 @@ public class GameManager : MonoBehaviour
         } else {
             Destroy(golfBagsParent.transform.GetChild(0).gameObject);
             GetNewBill();
+        }
+    }
+
+    private void Update()
+    {
+        if (forceLoseFromEditor)
+        {
+            forceLoseFromEditor = false;
+            Lose(true);
         }
     }
 
