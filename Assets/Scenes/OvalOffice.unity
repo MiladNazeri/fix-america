@@ -16762,6 +16762,7 @@ MonoBehaviour:
     type: 3}
   veto: {fileID: 4683496812419448412, guid: f455a7e635fbc6a4380d7dd112551dc6, type: 3}
   StampBill: {fileID: 8296172668838727788}
+  clip: {fileID: 0}
 --- !u!1 &514427464
 GameObject:
   m_ObjectHideFlags: 0
@@ -66386,6 +66387,7 @@ MonoBehaviour:
     type: 3}
   veto: {fileID: 4683496812419448412, guid: f455a7e635fbc6a4380d7dd112551dc6, type: 3}
   StampBill: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &1698414488
 GameObject:
   m_ObjectHideFlags: 0
