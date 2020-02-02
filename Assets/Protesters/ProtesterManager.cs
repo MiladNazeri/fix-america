@@ -15,6 +15,7 @@ public class ProtesterManager : MonoBehaviour
     public GameObject sign;
 
     public int protesterSignPercent = 10;
+	public int maxProtesters = 200;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class ProtesterManager : MonoBehaviour
     public void SetProtesterAmount(int amount)
     {
         //Debug.Log("requesting protesters: " + amount.ToString());
-        desiredProtesters = amount;
+        desiredProtesters = Mathf.Min(amount, maxProtesters);
         UpdateProtesters();
     }
     void UpdateProtesters()
