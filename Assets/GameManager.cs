@@ -12,13 +12,18 @@ public class GameManager : MonoBehaviour
 
     public BillTextChange billTextChange;
 
+    public int remainingLives = 10;
+
     public void BillTimerIsOver()
     {
         Lose();
     }
 
     public void Lose() {
-        SceneManager.LoadScene("end_scene");
+        remainingLives--;
+        if (remainingLives == 0) {
+            SceneManager.LoadScene("end_scene");
+        }
     }
 
     private void Awake() {
