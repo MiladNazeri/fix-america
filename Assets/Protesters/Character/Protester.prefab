@@ -204,6 +204,11 @@ MonoBehaviour:
   RightArm: {fileID: 7250153490941403286}
   Head: {fileID: 6123777129788044950}
   Body: {fileID: 1013440404223436936}
+  headRotationMax: 25
+  armOffsetMax: 0.2
+  maxAnimSpeed: 2
+  faceRenderer: {fileID: 7189576993315870838}
+  maxFacialExpressionChangeTime: 8
 --- !u!1 &3489360491701673016
 GameObject:
   m_ObjectHideFlags: 0
