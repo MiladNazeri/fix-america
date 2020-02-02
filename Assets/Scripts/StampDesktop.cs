@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class StampDesktop : MonoBehaviour
 {
+
+    public static StampDesktop Instance { get; private set; }
+
+    private void Awake() {
+        if (null == Instance) {
+            Instance = this;
+        } else {
+            // Another one already exists, suicide ourselves, there can only be one
+            Destroy(gameObject);
+        }
+    }
+
     public GameObject StampBill;
     void Update()
     {
