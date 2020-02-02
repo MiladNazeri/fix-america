@@ -20029,11 +20029,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2083432450}
     m_Modifications:
-    - target: {fileID: 2887406425314024962, guid: 0aca0e1d7fecc6840af5fb3cc9a7232f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2887406425314024963, guid: 0aca0e1d7fecc6840af5fb3cc9a7232f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20094,11 +20089,6 @@ PrefabInstance:
       propertyPath: StampBill
       value: 
       objectReference: {fileID: 8296172668838727788}
-    - target: {fileID: 2887406425314024986, guid: 0aca0e1d7fecc6840af5fb3cc9a7232f,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2887406425314024987, guid: 0aca0e1d7fecc6840af5fb3cc9a7232f,
         type: 3}
       propertyPath: m_Name
@@ -21652,11 +21642,6 @@ PrefabInstance:
       propertyPath: StampBill
       value: 
       objectReference: {fileID: 8296172668838727788}
-    - target: {fileID: 4077340235480294957, guid: 89a73e8084a144141a94bf659d46b823,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4077340235480294958, guid: 89a73e8084a144141a94bf659d46b823,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21711,26 +21696,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077340235480294958, guid: 89a73e8084a144141a94bf659d46b823,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.249
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077340235480294958, guid: 89a73e8084a144141a94bf659d46b823,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.29257497
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077340235480294958, guid: 89a73e8084a144141a94bf659d46b823,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.249
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077340235480294997, guid: 89a73e8084a144141a94bf659d46b823,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4077340235480294998, guid: 89a73e8084a144141a94bf659d46b823,
         type: 3}
