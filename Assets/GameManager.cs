@@ -172,6 +172,6 @@ canStampNewBill = false;
             break;
         }
 
-        return 1;
+        return 2;
     }
 }
