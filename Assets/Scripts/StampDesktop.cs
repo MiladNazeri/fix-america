@@ -38,6 +38,12 @@ public class StampDesktop : MonoBehaviour
     {
         Animator stampAnimation = gameObject.GetComponent<Animator>();
         stampAnimation.Play("StampAnimations");
+        StartCoroutine(MakeStamp());
+    }
+
+    public IEnumerator MakeStamp()
+    {
+        yield return new WaitForSeconds(0.1f);
         StampBill.GetComponent<StampBill>().MakeNewStamp();
         StampAudio.instance.PlayStampSound();
     }
