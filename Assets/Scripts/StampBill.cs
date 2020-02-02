@@ -9,7 +9,7 @@ public class StampBill : MonoBehaviour
     public GameObject newStamp;
     public GameObject approved;
     public GameObject veto;
-    public GameObject currentStamp;
+    public List<GameObject> currentStamp = new List<GameObject>();
     public GameObject stampPosition;
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +33,7 @@ public class StampBill : MonoBehaviour
 
     public void MakeNewStamp()
     {
-        GameObject typeToUse;
+        GameObject typeToUse = null;
  
         if (currentStampType == "veto")
         {
@@ -45,13 +45,17 @@ public class StampBill : MonoBehaviour
             typeToUse = approved;
         }
 
-        currentStamp = Instantiate(typeToUse, stampPosition.transform.position, Quaternion.Euler(90, 0, 0));
+        GameObject f = (GameObject)(Instantiate(typeToUse, stampPosition.transform.position, Quaternion.Euler(90, 0, 0)));
+        currentStamp.Add(f);
     }
 
     public void DeleteStamp()
     {
         Debug.Log("destroying paper stamp");
-        Destroy(currentStamp);
+        foreach(GameObject g in currentStamp)
+        {
+            DestroyImmediate(g);
+        }
     }
 
 }

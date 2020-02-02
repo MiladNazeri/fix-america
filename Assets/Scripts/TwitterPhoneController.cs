@@ -18,10 +18,13 @@ public class TwitterPhoneController: MonoBehaviour
 
 	private int remainingTweets = 5;
 
+	const string HANDS_NAME = "VRTK_BHand";
+
 	enum TwitterDisplays {
 		NONE,
 		THUMB_UP,
 		THUMB_DOWN,
+		SORRY,
 	}
 
 	private TwitterDisplays currentDisplay;
@@ -37,10 +40,15 @@ public class TwitterPhoneController: MonoBehaviour
 
 	public void Tweet()
 	{
+		if (remainingTweets <= 0)
+		{
+			currentDisplay = TwitterDisplays.SORRY;
+			return;
+		}
 		remainingTweets--;
 		updateTweetsCount();
 		var popularity = Backend.Instance.GetCurrentBillPopularity();
-		if (popularity >= 50) {
+		if (popularity >= 0.5f) {
 			currentDisplay = TwitterDisplays.THUMB_UP;
 		} else {
 			currentDisplay = TwitterDisplays.THUMB_DOWN;
@@ -66,6 +74,11 @@ public class TwitterPhoneController: MonoBehaviour
 
 	public void OnTriggerEnter(Collider other) {
 		Debug.Log($"Collision with phone: {other.gameObject.name}");
+		if (other.gameObject.name == HANDS_NAME)
+		{
+			Debug.Log("Touched by a hand!");
+			Tweet();
+		}
 	}
 
 	private void Update()
