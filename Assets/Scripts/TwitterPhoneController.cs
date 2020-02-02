@@ -18,7 +18,9 @@ public class TwitterPhoneController: MonoBehaviour
 
 	private int remainingTweets = 5;
 
-	const string HANDS_NAME = "VRTK_BHand";
+	const string HANDS_NAME = "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]";
+
+	public AudioSource tweetSound;
 
 	enum TwitterDisplays {
 		NONE,
@@ -45,6 +47,7 @@ public class TwitterPhoneController: MonoBehaviour
 			currentDisplay = TwitterDisplays.SORRY;
 			return;
 		}
+		tweetSound.Play();
 		remainingTweets--;
 		updateTweetsCount();
 		var popularity = Backend.Instance.GetCurrentBillPopularity();

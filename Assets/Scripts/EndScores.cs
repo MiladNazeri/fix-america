@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EndScores: MonoBehaviour
 {
+    public AudioSource hailToTheChief;
     private void Start()
     {
         gameObject.GetComponent<TextMeshPro>().text = 
@@ -16,5 +17,10 @@ public class EndScores: MonoBehaviour
     public void PlayAgain() 
     {
          SceneManager.LoadScene("OvalOffice");
+    }
+
+    public void PlayHailToTheChielf()
+    {
+        hailToTheChief.Play();
     }
 }
