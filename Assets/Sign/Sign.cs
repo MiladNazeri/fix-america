@@ -5,7 +5,6 @@ using TMPro;
 
 public class Sign : MonoBehaviour
 {
-    public GameObject text; 
     public GameObject paper;
 
     public enum Size 
@@ -16,6 +15,8 @@ public class Sign : MonoBehaviour
     public List<Vector3> textSizes;
     public List<Vector3> paperSizes;
 
+    public TextMeshPro text;
+
     public void SetSize () 
     {
 
@@ -23,6 +24,11 @@ public class Sign : MonoBehaviour
     
     public void SetText()
     {
+        
+    }
 
+    void Start() 
+    {
+        text.SetText(GameState.Instance.CurrentBill.Item2);
     }
 }
