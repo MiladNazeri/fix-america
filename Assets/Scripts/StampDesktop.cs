@@ -6,6 +6,8 @@ public class StampDesktop : MonoBehaviour
 {
 
     public static StampDesktop Instance { get; private set; }
+    public AudioClip audioclip;
+
 
     private void Awake() {
         if (null == Instance) {
@@ -57,6 +59,8 @@ public class StampDesktop : MonoBehaviour
     {
         yield return new WaitForSeconds(0.09f);
         StampBill.GetComponent<StampBill>().MakeNewStamp();
-        StampAudio.instance.PlayStampSound();
+        StampAudio.instance?.PlayStampSound();
+        transform.GetComponent<AudioSource>().PlayOneShot(audioclip);
+
     }
 }

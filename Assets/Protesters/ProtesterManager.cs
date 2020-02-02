@@ -17,6 +17,8 @@ public class ProtesterManager : MonoBehaviour
     public int protesterSignPercent = 10;
 	public int maxProtesters = 200;
 
+    const int MAX_NUMBER_PROTESTED = 100;
+
     // Start is called before the first frame update
     void Start()
     {
