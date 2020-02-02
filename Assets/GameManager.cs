@@ -9,11 +9,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public const int SECONDS_PER_BILL = 10;
+    public const int DAYS_OF_IMMUNITY = 20;
+    public const int POPULARITY_AVG_LOSING_THRESHOLD = 50;
     public const float TIME_BETWEEN_BILLS_SECONDS = 3f;
+
+    public GameObject golfBagsParent;
 
     public BillTextChange billTextChange;
 
-    public int remainingLives = 10;
 
 
     public void BillTimerIsOver()
@@ -21,10 +24,13 @@ public class GameManager : MonoBehaviour
         Lose();
     }
 
-    public void Lose() {
-        remainingLives--;
-        if (remainingLives == 0) {
+    public void Lose(bool force=false) {
+        GameState.Instance.remainingLives--;
+        Destroy(golfBagsParent.transform.GetChild(0).gameObject);
+        if (GameState.Instance.remainingLives == 0 || force) {
             SceneManager.LoadScene("end_scene");
+        } else {
+            GetNewBill();
         }
     }
 
@@ -71,6 +77,7 @@ public class GameManager : MonoBehaviour
     public void GetNewBill()
     {
         StampBill.Instance.DeleteStamp();
+        GameState.Instance.daysPlayed++;
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
         Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
 

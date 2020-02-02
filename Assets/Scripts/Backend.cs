@@ -193,6 +193,25 @@ public class Backend : MonoBehaviour
 
 	public ProtesterManager protesterManager;
 
+	private void updateAvgPopularity(int popularity)
+	{
+		if (popularity >= 80)
+		{
+			GameState.Instance.veryPopularBills++;
+		} else if (popularity <= 20) {
+			GameState.Instance.riotBills++;
+		}
+		GameState.Instance.averagePopularity = (
+			GameState.Instance.averagePopularity * GameState.Instance.daysPlayed
+		 	+ popularity
+		) / (GameState.Instance.daysPlayed + 1);
+		if (GameState.Instance.daysPlayed > GameManager.DAYS_OF_IMMUNITY
+			&& GameState.Instance.averagePopularity < GameManager.POPULARITY_AVG_LOSING_THRESHOLD)
+		{
+			GameManager.Instance.Lose(true);
+		}
+	}
+
 	public void ApproveBill() 
 	{
 		Debug.Log("Backend::ApproveBill()");
@@ -201,6 +220,7 @@ public class Backend : MonoBehaviour
 					GameState.Instance.CurrentBill.Item2,
 					GameState.Instance.CurrentBill.Item3
 				) * 100);
+		updateAvgPopularity(popularity);
 		TVController.Instance.DisplayPopularity(popularity);
 		protesterManager?.SetProtesterAmount(100 - popularity); 
 	}
@@ -212,6 +232,7 @@ public class Backend : MonoBehaviour
 					GameState.Instance.CurrentBill.Item3
 				) * 100);
 
+		updateAvgPopularity(popularity);
 		TVController.Instance.DisplayPopularity(100 - popularity);
 		protesterManager?.SetProtesterAmount(popularity); 
 

@@ -27,10 +27,11 @@ public class TVController : MonoBehaviour
     public void DisplayPopularity(int pop_pct)
     {
     	CancelTimer();
-    	var text = $"POPULARITY: {pop_pct}%\n\n";
+    	var text = $"POPULARITY: {pop_pct}%\n";
     	var rethoric = pop_pct > 50 ? "I'M THE BEST!" : "FAKE NUZE!";
+    	var avg = $"\n{GameState.Instance.daysPlayed}-day avg: {GameState.Instance.averagePopularity}%";
     	TVTimerText.text = "";
-    	TVPopularityText.text = text + rethoric;
+    	TVPopularityText.text = text + rethoric + avg;
     }
 
     public void StartTimerForSeconds(int seconds, TimerCallbackDelegate callback)
