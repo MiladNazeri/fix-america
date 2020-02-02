@@ -17,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     public BillTextChange billTextChange;
 
-
-
     public void BillTimerIsOver()
     {
         Lose();

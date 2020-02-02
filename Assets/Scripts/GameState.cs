@@ -10,10 +10,10 @@ public class GameState: MonoBehaviour
     public int daysPlayed = 0;
     public int veryPopularBills = 0;
     public int riotBills = 0;
-    public int remainingLives = 8;
+    public int remainingLives = 4;
     public static GameState Instance { get; private set; }
 
-    public enum State 
+    public enum State
     {
         Title,
         Playing,
