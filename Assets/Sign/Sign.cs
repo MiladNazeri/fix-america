@@ -27,8 +27,24 @@ public class Sign : MonoBehaviour
         
     }
 
+    string[] rioters = new string[]
+    {
+        "We are all",
+        "We love",
+        "Free",
+        "My son is a",
+        "Protect the",
+        "Feed the",
+        "What about the",
+        "More",
+        "More Rights for",
+        "My daugther is a"
+    };
+
     void Start() 
     {
-        text.SetText("We are all " + GameState.Instance.CurrentBill.Item2);
+        int i = Random.Range(0, rioters.Length);
+
+        text.SetText(rioters[i] + " " + GameState.Instance.CurrentBill.Item2);
     }
 }
