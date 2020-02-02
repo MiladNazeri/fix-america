@@ -9,28 +9,28 @@ public class StampVR : MonoBehaviour
     public string stampType;
     public GameObject approved;
     public GameObject veto;
+
+    public AudioClip clip;
+    
     bool _isGrabbed = true;
 
     public GameObject StampBill;
-    public AudioClip clip;
 
     void Start()
     {
         deskStamps = new List<GameObject>();
     }
 
-    public void ShowDeskStamp(Vector3 collisionPosition)
+    public void ShowDeskStamp(Vector3 collisionPosition, string _stampType)
     {
         GameObject typeToUse;
 
-        if (stampType == "veto")
+        if (_stampType == "veto")
         {
-            GameManager.Instance.Veto();
             typeToUse = veto;
         }
         else
         {
-            GameManager.Instance.Approve();
             typeToUse = approved;
         }
 
@@ -59,22 +59,30 @@ public class StampVR : MonoBehaviour
         }
         
         Debug.Log("collision for stamp");
+        transform.GetComponent<AudioSource>().PlayOneShot(clip);
         if (collision.gameObject.CompareTag("papers"))
         {
             Debug.Log("collision for papers");
 
             StampBill.GetComponent<StampBill>().SetCurrentStampType(stampType);
             StampBill.GetComponent<StampBill>().MakeNewStamp();
-            //StampAudio.instance.PlayStampSound();
-            transform.GetComponent<AudioSource>().PlayOneShot(clip);
+            StampAudio.instance?.PlayStampSound();
+
+            if (stampType == "veto")
+            {
+                GameManager.Instance.Veto();
+            }
+            else
+            {
+                GameManager.Instance.Approve();
+            }
         } else if (collision.gameObject.CompareTag("desk"))
         {
             Debug.Log("collision for desk");
 
             Vector3 deskStampPosition = collision.GetContact(0).point;
-            //StampAudio.instance.PlayStampSound();
-            transform.GetComponent<AudioSource>().PlayOneShot(clip);
-            ShowDeskStamp(deskStampPosition);
+            StampAudio.instance?.PlayStampSound();
+            ShowDeskStamp(deskStampPosition, stampType);
         }
     }
 }

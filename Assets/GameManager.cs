@@ -112,10 +112,10 @@ public class GameManager : MonoBehaviour
     {
         if(canStampNewBill)
         {
-canStampNewBill = false;
-        Backend.Instance.ApproveBill();
-        billTextChange.SetText("");
-        StartCoroutine(WaitThenCreateNewBill());
+            canStampNewBill = false;
+            Backend.Instance.ApproveBill();
+            billTextChange.SetText("");
+            StartCoroutine(WaitThenCreateNewBill());
         }
         
     }
@@ -124,10 +124,10 @@ canStampNewBill = false;
     {
         if(canStampNewBill)
         {
-canStampNewBill = false;
-        Backend.Instance.DeclineBill();
-        billTextChange.SetText("");
-        StartCoroutine(WaitThenCreateNewBill());
+            canStampNewBill = false;
+            Backend.Instance.DeclineBill();
+            billTextChange.SetText("");
+            StartCoroutine(WaitThenCreateNewBill());
         }
         
     }
