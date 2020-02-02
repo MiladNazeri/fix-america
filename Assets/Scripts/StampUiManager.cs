@@ -29,6 +29,7 @@ public class StampUiManager : MonoBehaviour
         currentStamp = veto;
         ShowPaperStamp(false);
         StampMove();
+        GameManager.Instance.Veto();
     }
 
     public void onSign()
@@ -37,6 +38,7 @@ public class StampUiManager : MonoBehaviour
         currentStamp = approved;
         ShowPaperStamp(false);
         StampMove();
+        GameManager.Instance.Approve();
     }
 
     public void StampMove()

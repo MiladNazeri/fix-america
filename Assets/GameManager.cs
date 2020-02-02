@@ -10,13 +10,20 @@ public class GameManager : MonoBehaviour
     public const int SECONDS_PER_BILL = 10;
     public const float TIME_BETWEEN_BILLS_SECONDS = 3f;
 
+    public BillTextChange billTextChange;
+
+    public int remainingLives = 10;
+
     public void BillTimerIsOver()
     {
         Lose();
     }
 
     public void Lose() {
-        SceneManager.LoadScene("end_scene");
+        remainingLives--;
+        if (remainingLives == 0) {
+            SceneManager.LoadScene("end_scene");
+        }
     }
 
     private void Awake() {
@@ -50,10 +57,14 @@ public class GameManager : MonoBehaviour
     {
         GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
         Debug.Log($"New Bill is: {GameState.Instance.CurrentBill.Item1}");
+
+        billTextChange.SetText(GameState.Instance.CurrentBill.Item1);
+
         var popularity = Backend.Instance.GetBillPopularity(
             GameState.Instance.CurrentBill.Item2,
             GameState.Instance.CurrentBill.Item3
         ) * 100;
+        
         Debug.Log($"Potential popularity of the bill is: {popularity}%.");
         TVController.Instance.StartTimerForSeconds(SECONDS_PER_BILL, BillTimerIsOver);
     }
