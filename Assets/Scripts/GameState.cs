@@ -8,6 +8,8 @@ public class GameState: MonoBehaviour
     public Tuple<string, string, string> CurrentBill { get; set; }
     public int averagePopularity = 75;
     public int daysPlayed = 0;
+    public int veryPopularBills = 0;
+    public int riotBills = 0;
     public static GameState Instance { get; private set; }
 
     public enum State 

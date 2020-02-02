@@ -195,6 +195,12 @@ public class Backend : MonoBehaviour
 
 	private void updateAvgPopularity(int popularity)
 	{
+		if (popularity >= 80)
+		{
+			GameState.Instance.veryPopularBills++;
+		} else if (popularity <= 20) {
+			GameState.Instance.riotBills++;
+		}
 		GameState.Instance.averagePopularity = (
 			GameState.Instance.averagePopularity * GameState.Instance.daysPlayed
 		 	+ popularity
