@@ -18,7 +18,7 @@ public class TwitterPhoneController: MonoBehaviour
 
 	private int remainingTweets = 5;
 
-	const string HANDS_NAME = "VRTK_BHand";
+	const string HANDS_NAME = "[VRTK][AUTOGEN][Controller][NearTouch][CollidersContainer]";
 
 	enum TwitterDisplays {
 		NONE,
