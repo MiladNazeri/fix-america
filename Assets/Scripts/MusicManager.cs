@@ -22,8 +22,15 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PlayGamePlayMusic()
+    public void PlayGamePlayMusic(bool shouldPlay = true)
     {
-        gameplayMusic.Play();
+        if (shouldPlay == true)
+        {
+            gameplayMusic.Play();
+        } else
+        {
+            gameplayMusic.Stop();
+        }
+
     }
 }
