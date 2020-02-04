@@ -1,7 +1,7 @@
-#Fix America
+# Fix America
 Enter the Oval Office in VR and fix the United States of America! Veto and Approve bills and try to keep the protesters at bay.
 
-#Credits
+# Credits
 Ari Romano McBride,
 Cameron Loui,
 Mark Brosche,
