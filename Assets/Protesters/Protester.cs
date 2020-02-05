@@ -18,11 +18,11 @@ public class Protester : MonoBehaviour
 	public Transform lookAtTarget;
 
 	NavMeshAgent agent;
+
 	void Awake () {
 		agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 		if (Time.time - positionCheckInterval > lastCheckTime){

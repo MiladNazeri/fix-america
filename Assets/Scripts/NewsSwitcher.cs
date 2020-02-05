@@ -14,17 +14,16 @@ public class NewsSwitcher : MonoBehaviour
 
     void SwapNat() 
     {
-            if(yes)
-            {
-                yes = false;
-    SetPos(top);
+        if(yes)
+        {
+            yes = false;
+            SetPos(top);
                
-            }else 
-            {
-                yes = true;
-              SetPos(front);
-            }
-
+        }else 
+        {
+            yes = true;
+            SetPos(front);
+        }
     }
 
     void SetPos(Transform t) 
@@ -35,11 +34,11 @@ public class NewsSwitcher : MonoBehaviour
     }
 
 
-    int time =5;
+    int time = 5;
     float timer;
     void Update()
     {
-        timer+=Time.deltaTime;
+        timer += Time.deltaTime;
         if(timer > time)
         {
             timer = 0;

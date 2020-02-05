@@ -9,12 +9,6 @@ public class ProtesterGoal : MonoBehaviour
 	
 	public Transform lookAtTarget;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	void OnDrawGizmos()
     {
         Gizmos.DrawIcon(transform.position, "ProtesterGoal.png", false);

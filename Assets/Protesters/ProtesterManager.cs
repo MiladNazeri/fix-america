@@ -33,6 +33,7 @@ public class ProtesterManager : MonoBehaviour
         desiredProtesters = Mathf.Min(amount, maxProtesters);
         UpdateProtesters();
     }
+
     void UpdateProtesters()
     {
         if (desiredProtesters < protesters.Count)
@@ -53,11 +54,10 @@ public class ProtesterManager : MonoBehaviour
                 c--;
             }
         }
-
     }
+
     void AddProtester()
     {
-
         //spawn protester	
         //Debug.Log("adding protester");
         //create a protester at a random spawn point and send them to a random destination
@@ -77,6 +77,7 @@ public class ProtesterManager : MonoBehaviour
             GameObject s = Instantiate(sign, hand.transform);
         }
     }
+
     void RemoveProtester()
     {
         //Debug.Log("removing protester");
