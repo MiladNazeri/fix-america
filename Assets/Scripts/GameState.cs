@@ -34,7 +34,7 @@ public class GameState: MonoBehaviour
             SceneManager.LoadScene("OvalOffice");
             break;
             case State.End:
-                MusicManager.Instance.PlayGamePlayMusic(false);
+            MusicManager.Instance.PlayGamePlayMusic(false);
             SceneManager.LoadScene("end_scene");
             break;
         }

@@ -10,23 +10,22 @@ public class Backend : MonoBehaviour
 		"Improve the life of",
 		"Increase funding of",
 		"Subsidize",
-		// "Endorse",
 		"Reduce taxes on",
 		"Decriminalize",
 		"Direct the Homeland Security Council to protect the",
 		"Authorize research grants of",
-		// "Direct a study by the National Academy of Medicine for",
 		"End the epidemic of",
-		// "Enlist the Director for Disease Control and Prevention to support activities regarding all",
 		"Create programs of temporary assistance for",
-		// "Promote the suffering of",
-		// "Mint coins in commemoration of",
 		"Award Congressional Gold Medals to",
 		"Give $1000 to all"
+		// "Endorse",
+		// "Direct a study by the National Academy of Medicine for",
+		// "Enlist the Director for Disease Control and Prevention to support activities regarding all",
+		// "Promote the suffering of",
+		// "Mint coins in commemoration of",
 	};
 
 	List<string> negative_verbs = new List<string>() {
-		// "Assimilate",
 		"Nuke the",
 		"Deport",
 		"Increase taxes on",
@@ -37,12 +36,13 @@ public class Backend : MonoBehaviour
 		"Declare national emergency on",
 		"Eliminate public funding of",
 		"Increase regulations on",
+		"Issue reparations of"
 		// "Authorize the Marshal of the Supreme Court to protect the",
 		// "Enact a state of emergency of",
 		// "Conduct an assessment of",
-		"Issue reparations of",
+		// "Assimilate",
 		// "Legalize psychedelics for",
-		 // "Waterboard all",
+		// "Waterboard all",
 	};
 
 	HashSet<string> alreadyDrawnBills = new HashSet<string>();
@@ -72,18 +72,18 @@ public class Backend : MonoBehaviour
 			{"Flat Earthers", null},
 			{"Electric Vehicle Owners", null},
 			{"Mega corporations", null},
-			// {"VIM users", null},
 			{"Gun owners", null},
 			{"Anti-Vaxxers", null},
 			{"Weather enthusiasts", null},
 			{"Victims of Facebook", null},
-			// {"Googlers", null},
+			{"Body Builders", null},
 			{"Terrorists", null},
 			{"Pickup truck drivers", null},
 			{"People who shop at Whole Foods", null},
+			// {"Googlers", null},
 			// {"Streamers", null},
 			// {"Basic Bitches", null},
-			{"Body Builders", null},
+			// {"VIM users", null},
 			// {"Multi-Level Marketers", null},
 		};
 
@@ -228,28 +228,29 @@ public class Backend : MonoBehaviour
 			GameManager.Instance.Lose(true);
 		}
 	}
-
-	public void ApproveBill() 
+	
+	int GetPopularity()
 	{
-		Debug.Log("Backend::ApproveBill()");
-		
-		var popularity = (int) (Backend.Instance.GetBillPopularity(
+		var popularity = (int)(Backend.Instance.GetBillPopularity(
 					GameState.Instance.CurrentBill.Item2,
 					GameState.Instance.CurrentBill.Item3
 				) * 100);
 		updateAvgPopularity(popularity);
+		return popularity;
+	}
+
+	public void ApproveBill() 
+	{
+		int popularity = GetPopularity();
+
 		TVController.Instance.DisplayPopularity(popularity);
 		protesterManager?.SetProtesterAmount(100 - popularity); 
 	}
 
 	public void DeclineBill() 
 	{
-		var popularity = (int) (Backend.Instance.GetBillPopularity(
-					GameState.Instance.CurrentBill.Item2,
-					GameState.Instance.CurrentBill.Item3
-				) * 100);
+		int popularity = GetPopularity();
 
-		updateAvgPopularity(popularity);
 		TVController.Instance.DisplayPopularity(100 - popularity);
 		protesterManager?.SetProtesterAmount(popularity); 
 

@@ -19,7 +19,6 @@ public class ProtesterManager : MonoBehaviour
 
     const int MAX_NUMBER_PROTESTED = 100;
 
-    // Start is called before the first frame update
     void Start()
     {
         spawnPoints = Resources.FindObjectsOfTypeAll(typeof(ProtesterSpawn)) as ProtesterSpawn[];

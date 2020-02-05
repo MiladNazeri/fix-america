@@ -10,18 +10,18 @@ public class NewsSwitcher : MonoBehaviour
     public Camera news;
 
    
-   bool yes = true;
+   bool showTop = true;
 
     void SwapNat() 
     {
-        if(yes)
+        if(showTop)
         {
-            yes = false;
+            showTop = false;
             SetPos(top);
                
         }else 
         {
-            yes = true;
+            showTop = true;
             SetPos(front);
         }
     }
