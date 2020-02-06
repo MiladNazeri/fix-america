@@ -6,22 +6,12 @@ using UnityEngine.SceneManagement;
 public class StartScreen : MonoBehaviour
 {
     public AudioSource intro;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     public void GoGameScreen() 
     {
         intro.Stop();
         SceneManager.LoadScene("OvalOffice");
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
     }
 
     public void OnTriggerEnter(Collider other)

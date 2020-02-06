@@ -26,17 +26,6 @@ public class Sign : MonoBehaviour
 	public float maxSize = 2.0f;
 
 
-
-    public void SetSize () 
-    {
-
-    }
-    
-    public void SetText()
-    {
-        
-    }
-
     string[] startText = new string[]
     {
         "We are all",
