@@ -11,15 +11,6 @@ public class StampAudio : MonoBehaviour
     {
         instance = this;
     }
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void PlayStampSound()
     {

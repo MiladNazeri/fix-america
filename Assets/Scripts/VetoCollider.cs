@@ -6,6 +6,6 @@ public class VetoCollider: MonoBehaviour
 {
 	private void OnMouseDown()
 	{
-		GameManager.Instance.Veto();
+		GameManager.Instance.Vote(false);
 	}
 }
