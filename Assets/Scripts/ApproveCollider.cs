@@ -6,6 +6,6 @@ public class ApproveCollider: MonoBehaviour
 {
 	private void OnMouseDown()
 	{
-		GameManager.Instance.Approve();
+		GameManager.Instance.Vote(true);
 	}
 }

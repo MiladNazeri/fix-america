@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
 
     public void SetupDesktopStamps()
     {
-        Debug.Log("Setting up desktop stamps");
         veto.SetActive(false);
         approve.SetActive(false);
         desktopStamp.SetActive(true);
@@ -107,28 +106,21 @@ public class GameManager : MonoBehaviour
         GetNewBill();
     }
 
-    public void Approve()
+    public void Vote(bool shouldApprove)
     {
-        if(canStampNewBill)
+        if (canStampNewBill)
         {
             canStampNewBill = false;
-            Backend.Instance.ApproveBill();
+            if (shouldApprove)
+            {
+                Backend.Instance.ApproveBill();
+            } else
+            {
+                Backend.Instance.DeclineBill();
+            }
             billTextChange.SetText("");
             StartCoroutine(WaitThenCreateNewBill());
         }
-        
-    }
-
-    public void Veto()
-    {
-        if(canStampNewBill)
-        {
-            canStampNewBill = false;
-            Backend.Instance.DeclineBill();
-            billTextChange.SetText("");
-            StartCoroutine(WaitThenCreateNewBill());
-        }
-        
     }
 
     string[] trouble1 = new string[]

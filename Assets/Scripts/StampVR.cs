@@ -70,11 +70,11 @@ public class StampVR : MonoBehaviour
 
             if (stampType == "veto")
             {
-                GameManager.Instance.Veto();
+                GameManager.Instance.Vote(false);
             }
             else
             {
-                GameManager.Instance.Approve();
+                GameManager.Instance.Vote(true);
             }
         } else if (collision.gameObject.CompareTag("desk"))
         {

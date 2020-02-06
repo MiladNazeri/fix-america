@@ -11,7 +11,7 @@ public class StampBill : MonoBehaviour
     public GameObject veto;
     public List<GameObject> currentStamp = new List<GameObject>();
     public GameObject stampPosition;
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (null == Instance)
@@ -37,11 +37,11 @@ public class StampBill : MonoBehaviour
  
         if (currentStampType == "veto")
         {
-            GameManager.Instance.Veto();
+            GameManager.Instance.Vote(false);
             typeToUse = veto;
         } else
         {
-            GameManager.Instance.Approve();
+            GameManager.Instance.Vote(true);
             typeToUse = approved;
         }
 

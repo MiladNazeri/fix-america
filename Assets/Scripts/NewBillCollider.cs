@@ -6,7 +6,7 @@ public class NewBillCollider: MonoBehaviour
 {
 	private void OnMouseDown()
 	{
-		GameManager.Instance.Approve();
+		GameManager.Instance.Vote(true);
 		// Debug.Log("Generating a new bill.");
 /*		
 		GameState.Instance.CurrentBill = Backend.Instance.GetNewBill();
